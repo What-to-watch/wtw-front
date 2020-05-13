@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCard render correctly 1`] = `
+<a
+  className="movie-card"
+  href="#1"
+>
+  <div
+    className="movie-card__background"
+  >
+    <div
+      className="movie-card__background__gradient red"
+    />
+    <img
+      alt="movie1"
+      className="movie-card__background__image"
+      src="movie-posters/1.jpg"
+    />
+  </div>
+  <div
+    className="movie-card__info"
+  >
+    <h2>
+      movie1
+    </h2>
+    <p>
+      Action/Comedy
+    </p>
+  </div>
+</a>
+`;
