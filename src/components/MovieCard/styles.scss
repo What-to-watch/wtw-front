@@ -20,6 +20,8 @@
             width: 100%;
             height: 100%;
             z-index: -1;
+            background: url('/movie-posters/LoadPoster.png') no-repeat scroll 0 0;
+            background-size: cover;
         }
     }
     &__info{

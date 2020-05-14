@@ -12,7 +12,11 @@ const MovieCard = ({...props}) => {
         <a className="movie-card" href={`#${id}`}>
             <div className="movie-card__background" >
                 <div className={"movie-card__background__gradient "}  style={{backgroundImage:gradient}}></div>
-                <img className="movie-card__background__image" src={src} alt={title}/>
+                <img 
+                    className="movie-card__background__image" 
+                    src={src ? src : '/movie-posters/NoPoster.png'}
+                    alt={title}
+                />
             </div>
             <div className="movie-card__info">
                 <h2>{title}</h2>
@@ -26,7 +30,7 @@ MovieCard.defaultProps = {
     title: 'Movie1',
     genres: ['Comedy'],
     id: 1,
-    src: 'movie-posters/NoPoster.png',
+    src: '/movie-posters/NoPoster.png',
     hue:  -1,
 };
 
