@@ -6,7 +6,7 @@ it('MovieCard render correctly', ()=>{
     const props = {
         title: "movie1",
         genres: ['Action', 'Comedy'],
-        color: "red",
+        hue: 200,
         id: 1
     }
     const component = renderer.create(
