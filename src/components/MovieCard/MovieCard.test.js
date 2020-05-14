@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from './index';
 import renderer from 'react-test-renderer';
 
-it('MovieCard render correctly', ()=>{
+describe ('MovieCard render correctly', ()=>{
     const props = {
         title: "movie1",
         genres: ['Action', 'Comedy'],
@@ -22,4 +22,21 @@ it('MovieCard render correctly', ()=>{
     expect(genresNode.children[0]).toBe(props.genres.join('/'));
 
     expect(moviecard).toMatchSnapshot();
+
+    it('Movie Card default value', ()=>{
+        const defaultComponent = renderer.create(
+            (<MovieCard />)
+        );
+
+        let moviecard2 = defaultComponent.toJSON();
+
+        const titleNode = defaultComponent.root.findByType("h2");
+        const genresNode = defaultComponent.root.findByType("p");
+
+        expect(titleNode.children[0]).toBe('Movie1');
+
+        expect(genresNode.children[0]).toBe('Comedy');
+
+        expect(moviecard2).toMatchSnapshot();
+    })
 })
