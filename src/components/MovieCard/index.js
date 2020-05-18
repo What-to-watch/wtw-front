@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const MovieCard = ({...props}) => {
-    const { title, genres, id, src, hue } = props;
+    const { title, genres, id, src, hue = getRandomHue() } = props;
     const genresString = genres.join('/');
-    const hueValue = (!(hue===-1)? hue : getRandomHue() )
-    const gradient = `linear-gradient(180deg, hsla(${hueValue}, 100%, 50%, 0) 0%, hsla(${hueValue}, 100%, 10%, 0.8) 56%, hsla(${hueValue}, 100%, 0%, 0.9) 100%)`
+    const gradient = `linear-gradient(180deg, hsla(${hue}, 100%, 50%, 0) 0%, hsla(${hue}, 100%, 10%, 0.8) 56%, hsla(${hue}, 100%, 0%, 0.9) 100%)`
     return(
         <a className="movie-card" href={`#${id}`}>
             <div className="movie-card__background" >
@@ -31,7 +30,6 @@ MovieCard.defaultProps = {
     genres: ['Comedy'],
     id: 1,
     src: '/movie-posters/NoPoster.png',
-    hue:  -1,
 };
 
 MovieCard.propTypes = {
