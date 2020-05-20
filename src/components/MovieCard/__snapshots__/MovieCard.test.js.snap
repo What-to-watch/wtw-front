@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieCard render correctly 1`] = `
+exports[` 1`] = `
 <a
   className="movie-card"
   href="#1"
@@ -9,12 +9,17 @@ exports[`MovieCard render correctly 1`] = `
     className="movie-card__background"
   >
     <div
-      className="movie-card__background__gradient red"
+      className="movie-card__background__gradient "
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
     />
     <img
       alt="movie1"
       className="movie-card__background__image"
-      src="movie-posters/1.jpg"
+      src="/movie-posters/NoPoster.png"
     />
   </div>
   <div
@@ -25,6 +30,41 @@ exports[`MovieCard render correctly 1`] = `
     </h2>
     <p>
       Action/Comedy
+    </p>
+  </div>
+</a>
+`;
+
+exports[`MovieCard render correctly Movie Card default value 1`] = `
+<a
+  className="movie-card"
+  href="#1"
+>
+  <div
+    className="movie-card__background"
+  >
+    <div
+      className="movie-card__background__gradient "
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(242, 100%, 50%, 0) 0%, hsla(242, 100%, 10%, 0.8) 56%, hsla(242, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+    <img
+      alt="Movie1"
+      className="movie-card__background__image"
+      src="/movie-posters/NoPoster.png"
+    />
+  </div>
+  <div
+    className="movie-card__info"
+  >
+    <h2>
+      Movie1
+    </h2>
+    <p>
+      Comedy
     </p>
   </div>
 </a>
