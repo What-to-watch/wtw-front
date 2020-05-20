@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieCard from './components/MovieCard';
+import List from './components/List';
 
 function App() {
   return (
@@ -12,6 +13,23 @@ function App() {
           hue={200}
         />
         <MovieCard />
+        <div style={{ margin: "10px" }}>
+          <List 
+            content={[
+              { label: "Comedy", value: "COM" , data: "something else" },
+              "Coca cola",
+              "Pinteco"
+            ]}
+            keyword="Co"
+            onItemClick={console.log}
+          />
+        </div>
+        <div style={{ margin: "10px" }}>
+          <List keyword="H">
+            <List.Item>Hello?</List.Item>
+            <List.Item>Howdy do?</List.Item>
+          </List>
+        </div>
     </div>
   );
 }
