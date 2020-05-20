@@ -49,7 +49,7 @@ describe("List behavior", () => {
 
     it("should receive value and props on click", () => {
         const content = [
-            "Coca cola", "Comedy", "Pintuco"
+            { label: "Coca cola", value: "Something else" }
         ]
         const spy = (() => {
             let _spy = (...args) => {
@@ -67,9 +67,9 @@ describe("List behavior", () => {
         })()
         render(<List content={content} onItemClick={spy} />)
         fireEvent.click(screen.getByText('Coca cola'))
-        
+
         expect(spy.called).toBeTruthy();
         expect(spy.callCount).toBe(1);
-        expect(spy.firstCall.args[0]).toBe("Coca cola")
+        expect(spy.firstCall.args[0]).toBe(content[0].value)
     })
 })
