@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div
+  className="select"
+>
+  <button
+    className="select__button"
+    onClick={[Function]}
+  >
+    <span>
+      100
+    </span>
+    <img
+      alt="down"
+      src="icons/down-arrow.svg"
+    />
+  </button>
+  <ul
+    className="list"
+  >
+    <li
+      className="list__item"
+      onClick={[Function]}
+    >
+      10
+    </li>
+    <li
+      className="list__item"
+      onClick={[Function]}
+    >
+      100
+    </li>
+    <li
+      className="list__item"
+      onClick={[Function]}
+    >
+      1000
+    </li>
+  </ul>
+</div>
+`;
