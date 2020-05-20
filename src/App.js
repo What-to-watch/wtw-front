@@ -7,10 +7,11 @@ function App() {
         <MovieCard 
           title="Inglourious Basterds" 
           genres={["Action","War","Drama","Comedy"]}
-          color="red"
           id={1}
           src='movie-posters/1.jpg'
+          hue={200}
         />
+        <MovieCard />
     </div>
   );
 }
