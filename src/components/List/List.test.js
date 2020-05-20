@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react'
+import { render, fireEvent, screen } from '@testing-library/react'
 import renderer from 'react-test-renderer';
 import List, { Item } from './';
 
@@ -43,7 +43,33 @@ describe("List behavior", () => {
             "Coca cola", "Comedy", "Pintuco"
         ]
         const keyword = "co";
-        const comp = renderer.create(<List content={content} search={keyword}/>)
+        const comp = renderer.create(<List content={content} keyword={keyword}/>)
         expect(comp.root.findAllByType("strong")).toHaveLength(4)
+    })
+
+    it("should receive value and props on click", () => {
+        const content = [
+            "Coca cola", "Comedy", "Pintuco"
+        ]
+        const spy = (() => {
+            let _spy = (...args) => {
+                _spy.calls.push({ args })
+                _spy.called = true;
+                _spy.callCount = _spy.callCount+1;
+            }
+            _spy.calls = [];
+            _spy.called = false;
+            _spy.callCount = 0;
+            Object.defineProperty(_spy,"firstCall",{
+                get: () => _spy.calls[0]
+            })
+            return _spy
+        })()
+        render(<List content={content} onItemClick={spy} />)
+        fireEvent.click(screen.getByText('Coca cola'))
+        
+        expect(spy.called).toBeTruthy();
+        expect(spy.callCount).toBe(1);
+        expect(spy.firstCall.args[0]).toBe("Coca cola")
     })
 })

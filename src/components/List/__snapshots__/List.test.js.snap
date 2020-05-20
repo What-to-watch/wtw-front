@@ -4,23 +4,19 @@ exports[`List rendering renders correctly 1`] = `
 <DocumentFragment>
   <ul
     class="list"
-    role="list"
   >
     <li
       class="list__item"
-      role="listitem"
     >
       Comedy
     </li>
     <li
       class="list__item"
-      role="listitem"
     >
       Drama
     </li>
     <li
       class="list__item"
-      role="listitem"
     >
       Documentary
     </li>

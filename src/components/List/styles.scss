@@ -41,10 +41,6 @@ $radius: 8px;
         color: $fontColor;
         padding: 16px 24px;
 
-        &__highlight {
-            //font-weight: bold;
-        }
-
         &:hover {
             background-color: $hover;
         }

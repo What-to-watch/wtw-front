@@ -15,13 +15,16 @@ function App() {
         <div style={{ margin: "10px" }}>
           <List 
             content={[
-              "Comedy","Coca cola","Pinteco"
+              { label: "Comedy", value: "COM" , data: "something else" },
+              "Coca cola",
+              "Pinteco"
             ]}
-            search="Co"
+            keyword="Co"
+            onItemClick={console.log}
           />
         </div>
         <div style={{ margin: "10px" }}>
-          <List search="H">
+          <List keyword="H">
             <List.Item>Hello?</List.Item>
             <List.Item>Howdy do?</List.Item>
           </List>

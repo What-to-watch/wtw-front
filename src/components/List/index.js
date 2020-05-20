@@ -1,53 +1,107 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import "./styles.scss";
 
-const getClassName = (obj) => Object.entries(obj).map(([className,pred]) => {
-    const shouldConcat = typeof(pred) === "function" ? pred() : pred;
-    return shouldConcat ? className : undefined
-}).join(" ")
+const mapToItems = (data,props) => 
+    data
+    .map(x => typeof x === "string" ? { label: x, value: x } : x )
+    .map(({label, value, ...meta},index) => <Item 
+        index={index} 
+        key={index} 
+        label={label}
+        value={value}
+        {...meta}
+        {...props} 
+    />
+    )
 
-const mapToItems = (data,search) => data.map((value,index) => <Item value={value} key={index} search={search} />)
 
-const mapToHighlights = (str,search) => {
-    const keyword = new RegExp(search,"gi")
-    if( search && search.trim() && keyword.test(str) ){
-        return <span>{str.replace(keyword, str => `|${str}|`)
+const mapToHighlights = (str,keyword) => {
+    const keywordRegExp = new RegExp(keyword,"gi")
+    if( keyword && keyword.trim() && keywordRegExp.test(str) ){
+        return <span>{str.replace(keywordRegExp, str => `|${str}|`)
                 .split("|")
                 .map((str,idx) => {
-                    return str.toLowerCase() === search.trim().toLowerCase() ? 
-                        <strong key={`highlight-${idx}`}>{str}</strong> : str
+                    if(str.toLowerCase() === keyword.trim().toLowerCase()){
+                        return <strong key={`highlight-${idx}`}>{str}</strong>
+                    } else {
+                        return str
+                    }
                 })}</span>
     } else {
         return str
     }
 }
 
-const setSearchProp = (search,children) => React.Children.map(children,(child) => {
+const overrideItemProps = (children,props) => React.Children.map(children,(child) => {
     return React.cloneElement(child,{
         ...child.props,
-        search,
+        ...props,
     })
 })
 
 export const Item = (props) => {
-    const { value, search, children } = props;
-    const text = value || children;
-    const cl = getClassName({
-        "list__item": true
-    })
+    const { label, value, keyword, children, onClick = x => x } = props;
+    const text = label || children || value;
 
-    return <li className={cl} role="listitem">
-        {mapToHighlights(text,search)}
+    const handleClick = () => {
+        onClick(value,props)
+    }
+
+    return <li className="list__item" onClick={handleClick}>
+        {mapToHighlights(text,keyword)}
     </li>
 }
 
 const List = (props) => {
-    const { content, search, children } = props;
-    return <ul className="list" role="list">
-        {content ? mapToItems(content,search) : setSearchProp(search,children)}
+    const { 
+        content, 
+        keyword, 
+        children, 
+        onItemClick = x => x
+    } = props;
+
+    const itemProps = {
+        keyword,
+        onClick: onItemClick
+    }
+
+    return <ul className="list" >
+        {content ? mapToItems(content,itemProps) : overrideItemProps(children,itemProps)}
     </ul>
 }
 
 List.Item = Item;
+
+Item.propTypes = {
+    value: PropTypes.node,
+    keyword: PropTypes.string,
+    children: PropTypes.node,
+    onClick: PropTypes.func,
+}
+
+List.propTypes = {
+    keyword: PropTypes.string,
+    content: PropTypes.arrayOf(PropTypes.oneOfType([
+        PropTypes.shape({
+            label: PropTypes.node.isRequired,
+            value: PropTypes.any.isRequired
+        }),
+        PropTypes.node
+    ])),
+    children: (props) => {
+        if( props.children ){
+            if(props.content){
+                throw new Error("List should have either content or children. Not both.")
+            }
+            if(props.children.some(p => p.type !== Item)){
+                const others = props.children.filter(p => p.type !== Item).map(x => x.type)
+                throw new Error(`List may only contain Item children. Found: ${others}`)
+            }
+        }
+    },
+    onItemClick: PropTypes.func,
+}
 
 export default List;
