@@ -2,6 +2,7 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react'
 import renderer from 'react-test-renderer';
 import List, { Item } from './';
+import { Spy } from '../../utils/testing'
 
 describe("List rendering", () => {
     it("renders correctly", () => {
@@ -51,20 +52,7 @@ describe("List behavior", () => {
         const content = [
             { label: "Coca cola", value: "Something else" }
         ]
-        const spy = (() => {
-            let _spy = (...args) => {
-                _spy.calls.push({ args })
-                _spy.called = true;
-                _spy.callCount = _spy.callCount+1;
-            }
-            _spy.calls = [];
-            _spy.called = false;
-            _spy.callCount = 0;
-            Object.defineProperty(_spy,"firstCall",{
-                get: () => _spy.calls[0]
-            })
-            return _spy
-        })()
+        const spy = Spy()
         render(<List content={content} onItemClick={spy} />)
         fireEvent.click(screen.getByText('Coca cola'))
 
