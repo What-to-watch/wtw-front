@@ -10,12 +10,13 @@ const MovieCard = ({...props}) => {
     return(
         <a className="movie-card" href={`#${id}`}>
             <div className="movie-card__background" >
-                <div className={"movie-card__background__gradient "}  style={{backgroundImage:gradient}}></div>
                 <img 
                     className="movie-card__background__image" 
                     src={src ? src : '/movie-posters/NoPoster.png'}
                     alt={title}
                 />
+                <div className={"movie-card__background__gradient "}  style={{backgroundImage:gradient}}></div>
+                
             </div>
             <div className="movie-card__info">
                 <h2>{title}</h2>
