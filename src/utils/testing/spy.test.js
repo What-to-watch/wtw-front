@@ -29,7 +29,7 @@ describe("Spy", () => {
         expect(testSpy.called).toBeTruthy();
     })
 
-    it("should have reset function that erases call history", () => {
+    it("should have reset function that erases call history and returns wrapped function", () => {
         const just42 = () => 42;
         const testSpy = Spy(just42);
         testSpy();

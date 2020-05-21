@@ -39,7 +39,7 @@ describe("List rendering", () => {
 })
 
 describe("List behavior", () => {
-    it("should highligh given a search prop (case insensitive)", () => {
+    it("should highlight given a search prop (case insensitive)", () => {
         const content = [
             "Coca cola", "Comedy", "Pintuco"
         ]
