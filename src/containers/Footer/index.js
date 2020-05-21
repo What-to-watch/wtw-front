@@ -85,7 +85,7 @@ const Footer = () => {
                 </button>
             </div>
             <div className="footer__pagination">
-                <Pagination {...pagination} changePage={handlePagination} />
+                <Pagination {...pagination} onChangePage={handlePagination} />
             </div> 
             <div className="footer__results-number">
                 <div className="footer__results-number__select">

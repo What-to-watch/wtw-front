@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const Pagination = (props) => {
-    const {page, perPage, total, length, pages, changePage = x => x} = props;
+    const {page, perPage, total, length, pages, onChangePage = x => x} = props;
     const first = ( perPage * page ) - perPage + 1;
     const last = first + length -1;
 
     const handlePage = (page) => () => {
-        changePage(page, props)
+        onChangePage(page, props)
     }
     
     return (
@@ -44,7 +44,7 @@ Pagination.propTypes = {
     total: PropTypes.number.isRequired,
     length: PropTypes.number.isRequired,
     pages: PropTypes.number.isRequired,
-    changePage: PropTypes.func,
+    onChangePage: PropTypes.func,
 };
 
 export default Pagination;

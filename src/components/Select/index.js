@@ -9,7 +9,7 @@ const Select = (props) => {
     const {initValue, options, open, onChange = x => x, onClick = x => x } = props;
 
     const selectOption = (value) => {
-        return options.filter(option => option.value === value)[0]
+        return options.find(option => option.value === value);
     }
 
     const [ value, setValue ] = useState(initValue);

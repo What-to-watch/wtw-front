@@ -74,7 +74,7 @@ describe ('Pagination render', ()=>{
 
         expect(pagination).toMatchSnapshot();
     })
-    it('Pagination ChangePage is executed with button', ()=>{
+    it('Pagination onChangePage is executed with button', ()=>{
         const spy = (() => {
             let _spy = (...args) => {
                 _spy.calls.push({ args })
@@ -90,7 +90,7 @@ describe ('Pagination render', ()=>{
             return _spy
         })()
 
-        props = { ...props, changePage: spy }
+        props = { ...props, onChangePage: spy }
 
         render(<Pagination {...props} />);
 
