@@ -1,0 +1,1708 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie Grid rendering LoadingMovieGrid correctly rendering 1`] = `
+<div
+  className="movie-grid"
+>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+  <div
+    className="loading-movie-card"
+  >
+    <div
+      className="loading-movie-card__dots"
+    >
+      .
+    </div>
+    <div
+      className="loading-movie-card__gradient"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
+    />
+  </div>
+</div>
+`;
