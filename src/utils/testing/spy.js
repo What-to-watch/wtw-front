@@ -14,7 +14,7 @@ export const Spy = (fn = x => x) => {
     _spy.calls = [];
     _spy.calledWith = (...args) => _spy.calls.map(prop("args")).some(equals(args))
     _spy.appliedWith = (args) => _spy.calls.map(prop("args")).some(equals(args))
-    _spy.returned = x => _spy.calls.map(prop("result")).some(equals(x));
+    _spy.returned = x => _spy.calls.some(c => c.returned(x))
     _spy.reset = () => {
         _spy.calls = [];
         return fn
