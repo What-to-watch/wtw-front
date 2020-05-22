@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss';
@@ -21,31 +21,40 @@ const SearchIcon =(props) =>{
 }
 
 
-const SearchField = ({...props}) => {
-    const { value, onChange, clearValue, placeholder } = props;
+const SearchField = (props) => {
+    const { intialValue='',id='', name='', placeholder = 'Search', onChange = x=>x} = props
+    const [value, setValue] = useState(intialValue);
+    
+    const handleChange = (e) => {
+		setValue(e.target.value);
+		onChange(e, props)
+    }
+    const clearValue = ()=>{setValue('')}
+ 
 
     return(
         <div className="search-field" >
             <input 
                 type="text" 
                 className="search-field input" 
+                id={id}
+                name={name}
                 placeholder={placeholder}
                 value={value}
-                onChange={onChange}
+                onChange={handleChange}
             />
             <SearchIcon value={value} clearValue={clearValue}/>
          </div>
     );
 }
-SearchField.defaultProps = {
-    placeholder: 'Search',
-};
+
 
 SearchField.propTypes = {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    clearValue: PropTypes.func.isRequired,
-    placeholder: PropTypes.string
+    intialValue: PropTypes.string,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func,
+    id: PropTypes.string,
+    name: PropTypes.string,
 };
 
 

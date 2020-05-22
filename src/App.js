@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MovieCard from './components/MovieCard';
 import SearchField from './components/SearchField'
 
 function App() {
-  const [value, setValue] = useState('');
-  const onChange =(event) => setValue(event.target.value);
-  const clearValue= ()=> setValue('')
+
 
   return (
     <div style={{display: 'flex', width: '100%', flexWrap:'wrap', background: '#2E2C2C', zIndex:-4}}>
@@ -17,7 +15,7 @@ function App() {
           hue={200}
         />
         <MovieCard />
-        <SearchField placeholder="Add genre" value={value} onChange={onChange} clearValue={clearValue} />
+        <SearchField placeholder="Add genre" id="someSearch" name="genericName"/>
 
     </div>
   );
