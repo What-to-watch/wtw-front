@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MovieCard from './components/MovieCard';
 import SearchField from './components/SearchField'
 import List from './components/List';
 import Footer from './containers/Footer';
+import Chip from './components/Chip';
+import FilterModal from './components/FilterModal';
 
 function App() {
+  const [ open , setOpen] = useState(false)
   return (
     <div style={{display: 'flex', width: '100%', flexWrap:'wrap', background: '#2E2C2C', zIndex:-4}}>
         <MovieCard 
@@ -33,6 +36,15 @@ function App() {
             <List.Item>Hello?</List.Item>
             <List.Item>Howdy do?</List.Item>
           </List>
+        </div>
+        <div>
+          <Chip text="Comedy" color="green" />
+          <Chip text="Comedy" color="yellow"/>
+          <Chip text="Comedy" color="red"/>
+        </div>
+        <div style={{ position: "relative" , height: "fit-content" }}>
+          <button onClick={() => setOpen(!open)}>Open filter</button>
+          <FilterModal open={open} />
         </div>
         <Footer />
     </div>

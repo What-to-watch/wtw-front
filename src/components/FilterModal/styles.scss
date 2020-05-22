@@ -1,0 +1,46 @@
+.filter-modal {
+    width: 100%;
+    &__header {
+        color: white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        &__title {
+            font-size: 18px;
+        }
+
+        &__action {
+            color: white;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    &__division {
+        height: 0px;
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.4);;
+        margin: 16px 0px;
+    }
+
+    &__content {
+        &__genres {
+            width: fit-content;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 16px;
+
+            .chip {
+                margin-right: 16px;
+                margin-top: 8px;
+            }
+        }
+    }
+}
