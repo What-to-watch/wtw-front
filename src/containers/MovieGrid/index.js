@@ -6,18 +6,24 @@ import { usePathSelector } from 'redux-utility';
 
 import './styles.scss';
 
+const Card = ({ children }) => <div className="movie-grid__content__card">
+    {children}
+</div>
+
 export const LoadingMovieGrid = (props) => {
     const { length = 100, hue = '' } = props;
     const keys = Array.from(Array(length).keys());
     return (
-        <div className="movie-grid">
+        <>
             {keys.map((key) => (
-                <LoadingMovieCard 
-                    key={key.toString()} 
-                    hue={ hue === '' ? getRandomHue() : hue }
-                />
+                <Card>
+                    <LoadingMovieCard 
+                        key={key.toString()} 
+                        hue={ hue === '' ? getRandomHue() : hue }
+                    />
+                </Card>
             ))}
-        </div>
+        </>
     )
 }
 
@@ -30,24 +36,25 @@ const MovieGrid = () => {
         <LoadingMovieGrid length={state.resultsPerPage > 100 ? 80 : state.resultsPerPage}/>
     )
 
-    const renderResults = () => (
-        <div className="movie-grid">
-            {
-                data.movies.edges.map((movie => {
-                    const genres = movie.node.genres ? movie.node.genres.map((genre => genre.name)) : [];
-                    return (
-                        <MovieCard 
-                            {...movie.node}
-                            genres={genres}
-                            src={movie.node.posterUrl}
-                            key={movie.node.id}
-                        />)
-                }))
-            }
-        </div>
-    )
+    const renderResults = () => data.movies.edges.map((movie => {
+            const genres = movie.node.genres ? movie.node.genres.map((genre => genre.name)) : [];
+            return <Card>
+                <MovieCard 
+                    {...movie.node}
+                    genres={genres}
+                    src={movie.node.posterUrl}
+                    key={movie.node.id}
+                />
+            </Card>
+        }))
+    }
 
-    return !loading && !error ? renderResults() : renderLoading();
+
+    return <div className="movie-grid">
+        <div className="movie-grid__content">
+        {(!loading && !error) ? renderResults() : renderLoading()}
+        </div>
+    </div>
 }
 
 export default MovieGrid
