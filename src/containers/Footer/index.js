@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Pagination from '../../components/Pagination';
 import Select from '../../components/Select';
 import getClassName from '../../utils/getClassName';
+import { movies } from '../../state/movieState';
+import { setResultsPerPage, setSortField, setSortOrder } from '../../state/movieState/actions';
 
 import './styles.scss';
 
 const Footer = () => {
+    const { state, dispatch } = useContext(movies);
+
     const parameterOptions = [
-        { label: 'Title', value: 'title' },
-        { label: 'Release date', value: 'release-date' },
-        { label: 'Budget', value: 'budget' }
+        { label: 'Title', value: 'Title' },
+        { label: 'Release date', value: 'ReleaseDate' },
+        { label: 'Budget', value: 'Budget' }
     ]
     const orderOptions = [
-        { label: 'Ascending', value: 'asc' },
-        { label: 'Descending', value: 'des' },
+        { label: 'Ascending', value: 'ASC' },
+        { label: 'Descending', value: 'DESC' },
     ]
 
     const resultOptions = [
@@ -23,11 +27,11 @@ const Footer = () => {
     ]
 
     const [ sortBy, setSortBy ] = useState({
-        parameter: parameterOptions[0].value,
-        order: orderOptions[0].value,
+        parameter: state.sortField,
+        order: state.sortOrder,
     });
 
-    const [ results, setResults ] = useState(100);
+    const [ results, setResults ] = useState(state.resultsPerPage);
 
     const [ pagination, setPagination ] = useState({
         page: 1,
@@ -42,11 +46,17 @@ const Footer = () => {
     const [ openedFooter, setOpenedFooter ] = useState(false);
     
     const handleSortChange = (sort) => (value) => {
+        if ( sort === 'parameter' ) {
+            dispatch(setSortField(value));
+        } else {
+            dispatch(setSortOrder(value));
+        }
         setSortBy({...sortBy, [sort]: value})
         setOpen('');
     }
 
     const handleResultChange = (value) => {
+        dispatch(setResultsPerPage(value));
         setResults(value)
         setOpen('');
     }

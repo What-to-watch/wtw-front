@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { useQuery } from '@apollo/react-hooks';
 import MovieCard, { LoadingMovieCard } from '../../components/MovieCard';
 import getRandomHue from '../../utils/getRandomHue';
+import { movies } from '../../state/movieState';
 
 import './styles.scss';
+import { INIT_MOVIES_QUERY } from '../../queries';
 
 export const LoadingMovieGrid = (props) => {
     const { length = 100, hue = '' } = props;
@@ -21,30 +24,41 @@ export const LoadingMovieGrid = (props) => {
 
 
 const MovieGrid = () => {
-    const [ results, setResults ] = useState({data:[], length: 100});
-    const [ loading, setLoading ] = useState(true);
+    const { state } = useContext(movies);
 
-    useEffect(()=>{
-        if(results.data.length > 0) {
-            setLoading(false);
+    const { loading, data, error } = useQuery(
+        INIT_MOVIES_QUERY,  
+        { 
+            errorPolicy: 'ignore', 
+            variables: {
+                ...state,
+                first: state.resultsPerPage
+            }
         }
-    }, [results])
+    );
 
     const renderLoading = () => (
-        <LoadingMovieGrid length={100}/>
+        <LoadingMovieGrid length={state.resultsPerPage}/>
     )
 
     const renderResults = () => (
         <div className="movie-grid">
             {
-                results.data.map((result => (
-                    <MovieCard {...result} key={result.id}/>
-                )))
+                data.movies.edges.map((movie => {
+                    const genres = movie.node.genres ? movie.node.genres.map((genre => genre.name)) : [];
+                    return (
+                        <MovieCard 
+                            {...movie.node}
+                            genres={genres}
+                            src={movie.node.posterUrl}
+                            key={movie.node.id}
+                        />)
+                }))
             }
         </div>
     )
 
-    return (results.length > 0) && !loading ? renderResults() : renderLoading();
+    return !loading && !error ? renderResults() : renderLoading();
 }
 
 export default MovieGrid
