@@ -1,18 +1,19 @@
 .movie-grid {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     min-width: 100%;
     min-height: 100%;
+    background-color: #2E2C2C;
     &__content{
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: flex-start;
         align-items: flex-start;
-        background-color: #2E2C2C;
         box-sizing: border-box;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
 
         &__card {
             display: flex;

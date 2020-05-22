@@ -16,7 +16,7 @@ export const LoadingMovieGrid = (props) => {
     return (
         <>
             {keys.map((key) => (
-                <Card>
+                <Card  key={key.toString()}>
                     <LoadingMovieCard 
                         key={key.toString()} 
                         hue={ hue === '' ? getRandomHue() : hue }
@@ -38,7 +38,7 @@ const MovieGrid = () => {
 
     const renderResults = () => data.movies.edges.map((movie => {
             const genres = movie.node.genres ? movie.node.genres.map((genre => genre.name)) : [];
-            return <Card>
+            return <Card key={movie.node.id}>
                 <MovieCard 
                     {...movie.node}
                     genres={genres}
@@ -47,7 +47,6 @@ const MovieGrid = () => {
                 />
             </Card>
         }))
-    }
 
 
     return <div className="movie-grid">
