@@ -1,0 +1,31 @@
+.chip {
+    font-weight: bold;
+    min-height: 24px;
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 16px;
+    cursor: pointer;
+
+    &__text {
+        margin-right: 6px;
+    }
+
+    &__close {
+        position: relative;
+        margin-left: 6px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        top: 0;
+        font-size: 1.2rem;
+    }
+}
+

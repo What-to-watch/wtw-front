@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss';
@@ -21,16 +21,22 @@ const SearchIcon =(props) =>{
 }
 
 
-const SearchField = (props) => {
+const SearchField = React.forwardRef((props,ref) => {
     const { intialValue='',id='', name='', placeholder = 'Search', onChange = x=>x} = props
     const [value, setValue] = useState(intialValue);
-    
+
     const handleChange = (e) => {
 		setValue(e.target.value);
 		onChange(e, props)
     }
     const clearValue = ()=>{setValue('')}
- 
+
+    const innerRef = useRef()
+    useImperativeHandle(ref, () => ({
+        clear: () => {
+            clearValue();
+        }
+    }))
 
     return(
         <div className="search-field" >
@@ -42,12 +48,12 @@ const SearchField = (props) => {
                 placeholder={placeholder}
                 value={value}
                 onChange={handleChange}
+                ref={innerRef}
             />
             <SearchIcon value={value} clearValue={clearValue}/>
          </div>
     );
-}
-
+})
 
 SearchField.propTypes = {
     intialValue: PropTypes.string,
