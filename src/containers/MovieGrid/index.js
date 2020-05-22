@@ -38,7 +38,7 @@ const MovieGrid = () => {
     );
 
     const renderLoading = () => (
-        <LoadingMovieGrid length={state.resultsPerPage}/>
+        <LoadingMovieGrid length={state.resultsPerPage > 100 ? 80 : state.resultsPerPage}/>
     )
 
     const renderResults = () => (
