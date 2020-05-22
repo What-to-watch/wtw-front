@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List rendering renders correctly 1`] = `
+<DocumentFragment>
+  <ul
+    class="list"
+  >
+    <li
+      class="list__item"
+    >
+      Comedy
+    </li>
+    <li
+      class="list__item"
+    >
+      Drama
+    </li>
+    <li
+      class="list__item"
+    >
+      Documentary
+    </li>
+  </ul>
+</DocumentFragment>
+`;

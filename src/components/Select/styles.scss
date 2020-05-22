@@ -1,0 +1,42 @@
+.select {
+    position: relative;
+
+    &__button{
+        display: flex;
+        align-items: center;
+        & span {
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 19px;
+            margin-right: 3px;
+        }
+        & img {
+            transition: transform ease-out 150ms;
+            transform: rotate(0deg)
+        }
+    }
+
+    & .list{
+        position: absolute;
+        bottom: 100%;
+        display: hidden;
+        z-index: -100;
+        transition: opacity ease-out 150ms;
+        opacity: 0;
+    }
+
+    &.open {
+        & .list{
+            display: block;
+            opacity: 1;
+            z-index: 99;
+        }
+
+        & .select__button{
+            & img {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
