@@ -1,0 +1,208 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination render Pagination render first page 1`] = `
+<div
+  className="pagination"
+>
+  <button
+    disabled={true}
+    onClick={[Function]}
+  >
+    <img
+      alt="|"
+      src="icons/pagination-line.svg"
+    />
+    <img
+      alt="<"
+      src="icons/left-arrow.svg"
+    />
+  </button>
+  <button
+    disabled={true}
+    onClick={[Function]}
+  >
+    <img
+      alt="<"
+      src="icons/left-arrow.svg"
+    />
+  </button>
+  <div
+    className="pagination__description"
+  >
+    <span>
+      1
+    </span>
+    <span>
+      -
+    </span>
+    <span>
+      100
+    </span>
+    <span>
+       of 
+      450
+       
+    </span>
+  </div>
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    <img
+      alt=">"
+      src="icons/right-arrow.svg"
+    />
+  </button>
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    <img
+      alt=">"
+      src="icons/right-arrow.svg"
+    />
+    <img
+      alt="|"
+      src="icons/pagination-line.svg"
+    />
+  </button>
+</div>
+`;
+
+exports[`Pagination render Pagination render in between page 1`] = `
+<div
+  className="pagination"
+>
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    <img
+      alt="|"
+      src="icons/pagination-line.svg"
+    />
+    <img
+      alt="<"
+      src="icons/left-arrow.svg"
+    />
+  </button>
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    <img
+      alt="<"
+      src="icons/left-arrow.svg"
+    />
+  </button>
+  <div
+    className="pagination__description"
+  >
+    <span>
+      201
+    </span>
+    <span>
+      -
+    </span>
+    <span>
+      300
+    </span>
+    <span>
+       of 
+      450
+       
+    </span>
+  </div>
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    <img
+      alt=">"
+      src="icons/right-arrow.svg"
+    />
+  </button>
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    <img
+      alt=">"
+      src="icons/right-arrow.svg"
+    />
+    <img
+      alt="|"
+      src="icons/pagination-line.svg"
+    />
+  </button>
+</div>
+`;
+
+exports[`Pagination render Pagination render last page 1`] = `
+<div
+  className="pagination"
+>
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    <img
+      alt="|"
+      src="icons/pagination-line.svg"
+    />
+    <img
+      alt="<"
+      src="icons/left-arrow.svg"
+    />
+  </button>
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    <img
+      alt="<"
+      src="icons/left-arrow.svg"
+    />
+  </button>
+  <div
+    className="pagination__description"
+  >
+    <span>
+      401
+    </span>
+    <span>
+      -
+    </span>
+    <span>
+      500
+    </span>
+    <span>
+       of 
+      450
+       
+    </span>
+  </div>
+  <button
+    disabled={true}
+    onClick={[Function]}
+  >
+    <img
+      alt=">"
+      src="icons/right-arrow.svg"
+    />
+  </button>
+  <button
+    disabled={true}
+    onClick={[Function]}
+  >
+    <img
+      alt=">"
+      src="icons/right-arrow.svg"
+    />
+    <img
+      alt="|"
+      src="icons/pagination-line.svg"
+    />
+  </button>
+</div>
+`;

@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieCard from './components/MovieCard';
 import List from './components/List';
+import Footer from './containers/Footer';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <List.Item>Howdy do?</List.Item>
           </List>
         </div>
+        <Footer />
     </div>
   );
 }
