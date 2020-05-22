@@ -1,11 +1,12 @@
 import React from 'react';
 import MovieCard from './components/MovieCard';
+import SearchField from './components/SearchField'
 import List from './components/List';
 import Footer from './containers/Footer';
 
 function App() {
   return (
-    <div style={{display: 'flex', width: '100%', flexWrap:'wrap'}}>
+    <div style={{display: 'flex', width: '100%', flexWrap:'wrap', background: '#2E2C2C', zIndex:-4}}>
         <MovieCard 
           title="Inglourious Basterds" 
           genres={["Action","War","Drama","Comedy"]}
@@ -14,6 +15,8 @@ function App() {
           hue={200}
         />
         <MovieCard />
+        <SearchField placeholder="Add genre" id="someSearch" name="genericName"/>
+
         <div style={{ margin: "10px" }}>
           <List 
             content={[
