@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getRandomHue from '../../utils/getRandomHue';
 
 import './styles.scss';
+
+const getGradient = (hue) => {
+    return `linear-gradient(180deg, hsla(${hue}, 100%, 50%, 0) 0%, hsla(${hue}, 100%, 10%, 0.8) 56%, hsla(${hue}, 100%, 0%, 0.9) 100%)`;
+}
 
 const MovieCard = ({...props}) => {
     const { title, genres, id, src, hue = getRandomHue() } = props;
     const genresString = genres.join('/');
-    const gradient = `linear-gradient(180deg, hsla(${hue}, 100%, 50%, 0) 0%, hsla(${hue}, 100%, 10%, 0.8) 56%, hsla(${hue}, 100%, 0%, 0.9) 100%)`
+    const gradient = getGradient(hue);
     return(
         <a className="movie-card" href={`#${id}`}>
             <div className="movie-card__background" >
@@ -26,6 +31,19 @@ const MovieCard = ({...props}) => {
     );
 }
 
+export const LoadingMovieCard = (props) => {
+    const { hue = getRandomHue() } = props;
+    const gradient = getGradient(hue);
+    return (
+        <div className="loading-movie-card">
+            <div className="loading-movie-card__dots">
+            .
+            </div>
+            <div className={"loading-movie-card__gradient"}  style={{backgroundImage:gradient}}></div>
+        </div>
+    )
+}
+
 MovieCard.defaultProps = {
     title: 'Movie1',
     genres: ['Comedy'],
@@ -40,13 +58,5 @@ MovieCard.propTypes = {
     src: PropTypes.string,
     hue: PropTypes.number,
 };
-
-function getRandomHue() {
-    const min = Math.ceil(0);
-    const max = Math.floor(360);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-
 
 export default MovieCard;

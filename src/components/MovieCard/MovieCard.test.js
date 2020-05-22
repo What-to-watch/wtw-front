@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieCard from './index';
+import MovieCard, { LoadingMovieCard } from './index';
 import renderer from 'react-test-renderer';
 
 describe ('MovieCard render correctly', ()=>{
@@ -25,7 +25,7 @@ describe ('MovieCard render correctly', ()=>{
 
     it('Movie Card default value', ()=>{
         const defaultComponent = renderer.create(
-            (<MovieCard />)
+            (<MovieCard hue={200}/>)
         );
 
         let moviecard2 = defaultComponent.toJSON();
@@ -38,5 +38,15 @@ describe ('MovieCard render correctly', ()=>{
         expect(genresNode.children[0]).toBe('Comedy');
 
         expect(moviecard2).toMatchSnapshot();
+    })
+})
+
+describe('Loading Movie Card Rendering', () => {
+    it('LoadingMovieCard Correct Rendering', () => {
+        const component = renderer.create(
+            (<LoadingMovieCard hue={200} />),
+        );
+        let loadingmoviecard = component.toJSON();
+        expect(loadingmoviecard).toMatchSnapshot();
     })
 })

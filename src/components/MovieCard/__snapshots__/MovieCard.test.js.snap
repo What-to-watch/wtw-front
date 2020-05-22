@@ -8,6 +8,11 @@ exports[` 1`] = `
   <div
     className="movie-card__background"
   >
+    <img
+      alt="movie1"
+      className="movie-card__background__image"
+      src="/movie-posters/NoPoster.png"
+    />
     <div
       className="movie-card__background__gradient "
       style={
@@ -15,11 +20,6 @@ exports[` 1`] = `
           "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
         }
       }
-    />
-    <img
-      alt="movie1"
-      className="movie-card__background__image"
-      src="/movie-posters/NoPoster.png"
     />
   </div>
   <div
@@ -35,6 +35,26 @@ exports[` 1`] = `
 </a>
 `;
 
+exports[`Loading Movie Card Rendering LoadingMovieCard Correct Rendering 1`] = `
+<div
+  className="loading-movie-card"
+>
+  <div
+    className="loading-movie-card__dots"
+  >
+    .
+  </div>
+  <div
+    className="loading-movie-card__gradient"
+    style={
+      Object {
+        "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+      }
+    }
+  />
+</div>
+`;
+
 exports[`MovieCard render correctly Movie Card default value 1`] = `
 <a
   className="movie-card"
@@ -43,18 +63,18 @@ exports[`MovieCard render correctly Movie Card default value 1`] = `
   <div
     className="movie-card__background"
   >
-    <div
-      className="movie-card__background__gradient "
-      style={
-        Object {
-          "backgroundImage": "linear-gradient(180deg, hsla(242, 100%, 50%, 0) 0%, hsla(242, 100%, 10%, 0.8) 56%, hsla(242, 100%, 0%, 0.9) 100%)",
-        }
-      }
-    />
     <img
       alt="Movie1"
       className="movie-card__background__image"
       src="/movie-posters/NoPoster.png"
+    />
+    <div
+      className="movie-card__background__gradient "
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(180deg, hsla(200, 100%, 50%, 0) 0%, hsla(200, 100%, 10%, 0.8) 56%, hsla(200, 100%, 0%, 0.9) 100%)",
+        }
+      }
     />
   </div>
   <div
