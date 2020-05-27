@@ -2,6 +2,7 @@ import React from 'react';
 import Pagination from './index';
 import { render, fireEvent, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
+import { Spy } from '../../utils/testing'
 
 describe ('Pagination render', ()=>{
     let props = {
@@ -75,20 +76,7 @@ describe ('Pagination render', ()=>{
         expect(pagination).toMatchSnapshot();
     })
     it('Pagination onChangePage is executed with button', ()=>{
-        const spy = (() => {
-            let _spy = (...args) => {
-                _spy.calls.push({ args })
-                _spy.called = true;
-                _spy.callCount = _spy.callCount+1;
-            }
-            _spy.calls = [];
-            _spy.called = false;
-            _spy.callCount = 0;
-            Object.defineProperty(_spy,"firstCall",{
-                get: () => _spy.calls[0]
-            })
-            return _spy
-        })()
+        const spy = Spy();
 
         props = { ...props, onChangePage: spy }
 
