@@ -6,8 +6,11 @@ export const INIT_MOVIES_QUERY = gql`
         $sortField: MovieSortField
         $sortOrder: MovieSortOrder
         $first: Int!
+        $after: String
+        $last: Int!
+        $before: String
         ) {
-        movies (first:$first, title:$title, sortField:$sortField, sortOrder:$sortOrder){
+        movies (first:$first, after:$after, last: $last, before: $before , title:$title, sortField:$sortField, sortOrder:$sortOrder){
             totalCount,
             edges {
                 node {
@@ -17,7 +20,8 @@ export const INIT_MOVIES_QUERY = gql`
                     genres {
                         name
                     }
-                }
+                },
+                cursor
             }   
         }
     }

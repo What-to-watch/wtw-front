@@ -1,49 +1,65 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Pagination from '../../components/Pagination';
 import Select from '../../components/Select';
 import getClassName from '../../utils/getClassName';
-import { movies } from '../../state/movieState';
-import { setResultsPerPage, setSortField, setSortOrder } from '../../state/movieState/actions';
+import { setResultsPerPage, setSortField, setSortOrder, setAfterCursor, setBeforeCursor, resetCursors } from '../../state/movies';
 
 import './styles.scss';
+import { usePathSelector } from 'redux-utility';
+import { useDispatch } from 'react-redux';
+import { useMovies } from '../../state/movies/hooks';
+import { clamp } from 'ramda';
+
+const parameterOptions = [
+    { label: 'Title', value: 'Title' },
+    { label: 'Release date', value: 'ReleaseDate' },
+    { label: 'Budget', value: 'Budget' }
+]
+const orderOptions = [
+    { label: 'Ascending', value: 'ASC' },
+    { label: 'Descending', value: 'DESC' },
+]
+
+const resultOptions = [
+    { label: '10', value: 10 },
+    { label: '100', value: 100 },
+    { label: '1000', value: 1000 }
+]
+
+const getNextPagination = (perPage,total) => p => {
+    const base = p.from - 1;
+    const restrict = clamp(1,total)
+    return {
+        from: restrict(base + perPage + 1),
+        to: restrict(base + perPage + perPage)
+    }
+}
+
+
+const getPrevPagination = (perPage,total) => p => {
+    const base = p.from - 1;
+    const restrict = clamp(1,total)
+    return {
+        from: restrict(base - perPage + 1),
+        to: restrict(restrict(base - perPage) + perPage)
+    }
+}
 
 const Footer = () => {
-    const { state, dispatch } = useContext(movies);
+    const queryOptions = usePathSelector("movies.query");
+    const dispatch = useDispatch();
+    const { before, after, total, loading } = useMovies()
 
-    const parameterOptions = [
-        { label: 'Title', value: 'Title' },
-        { label: 'Release date', value: 'ReleaseDate' },
-        { label: 'Budget', value: 'Budget' }
-    ]
-    const orderOptions = [
-        { label: 'Ascending', value: 'ASC' },
-        { label: 'Descending', value: 'DESC' },
-    ]
-
-    const resultOptions = [
-        { label: '10', value: 10 },
-        { label: '100', value: 100 },
-        { label: '1000', value: 1000 }
-    ]
-
-    const [ sortBy, setSortBy ] = useState({
-        parameter: state.sortField,
-        order: state.sortOrder,
-    });
-
-    const [ results, setResults ] = useState(state.resultsPerPage);
-
-    const [ pagination, setPagination ] = useState({
-        page: 1,
-        pages: 5,
-        total: 450,
-        perPage: 100,
-        length: 100,
-    });
+    const results = queryOptions.resultsPerPage;
 
     const [ open, setOpen ] = useState('');
 
     const [ openedFooter, setOpenedFooter ] = useState(false);
+
+    const [ pagination, setPagination ] = useState({
+        from: 1,
+        to: 100,
+    })
     
     const handleSortChange = (sort) => (value) => {
         if ( sort === 'parameter' ) {
@@ -51,25 +67,28 @@ const Footer = () => {
         } else {
             dispatch(setSortOrder(value));
         }
-        setSortBy({...sortBy, [sort]: value})
         setOpen('');
     }
 
     const handleResultChange = (value) => {
         dispatch(setResultsPerPage(value));
-        setResults(value)
+        setPagination( p => ({ ...p, to: p.from + value - 1 }))
         setOpen('');
     }
 
-    const handlePagination = (page) => {
-        const { pages, total, perPage } = pagination;
-        let length;
-        if( page === pages ){
-            length = total - perPage * (pages - 1)
-        } else {
-            length = perPage;
+    const handlePagination = (type) => {
+        if( type === "next" ){
+            setPagination(getNextPagination(results,total))
+            dispatch(setAfterCursor(after))
         }
-        setPagination({...pagination, page, length})
+        if( type === "previous" ){
+            setPagination(getPrevPagination(results,total))
+            dispatch(setBeforeCursor(before))
+        }
+        if( type === "first" ){
+            setPagination({ from: 1 , to: results})
+            dispatch(resetCursors())
+        }
     }
 
     const handleOpenSelects = (select) => () => {
@@ -95,7 +114,7 @@ const Footer = () => {
                 </button>
             </div>
             <div className="footer__pagination">
-                <Pagination {...pagination} onChangePage={handlePagination} />
+                <Pagination {...pagination} loading={loading} total={total} onChangePage={handlePagination} />
             </div> 
             <div className="footer__results-number">
                 <div className="footer__results-number__select">
@@ -117,14 +136,14 @@ const Footer = () => {
                 <p>Sort by:</p>
                 <Select 
                     options={parameterOptions}
-                    initValue={sortBy.parameter}
+                    initValue={queryOptions.sortField}
                     onChange={handleSortChange('parameter')}
                     open={open === 'parameter'}
                     onClick={handleOpenSelects('parameter')}
                 />
                 <Select 
                     options={orderOptions}
-                    initValue={sortBy.order}
+                    initValue={queryOptions.sortOrder}
                     onChange={handleSortChange('order')}
                     open={open === 'order'}
                     onClick={handleOpenSelects('order')}

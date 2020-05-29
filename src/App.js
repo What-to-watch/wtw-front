@@ -1,19 +1,21 @@
 import React from 'react';
+import { Provider } from 'react-redux'
 import { ApolloProvider } from '@apollo/react-hooks';
-import { MoviesProvider } from './state/movieState';
 import Footer from './containers/Footer';
 import MovieGrid from './containers/MovieGrid';
 
-
 import client from './queries/client';
+import { initStore } from './store';
+
+const store = initStore();
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <MoviesProvider>
+      <Provider store={store}>
         <MovieGrid />
         <Footer />
-      </MoviesProvider>
+      </Provider>
     </ApolloProvider>
   );
 }
