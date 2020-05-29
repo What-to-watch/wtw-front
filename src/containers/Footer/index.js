@@ -63,8 +63,8 @@ const Footer = () => {
 
     useEffect(() => {
         setPagination(() => ({ 
-            from: 1, 
-            to: clamp(1,total)(results)
+            from: total === 0 ? 0 : 1, 
+            to: total === 0 ? 0 : clamp(1,total)(results)
         }))
     },[total,setPagination])
     
