@@ -1,25 +1,12 @@
 .movie-grid {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-auto-rows: minmax(287px, auto);
+    grid-template-columns: repeat(auto-fill, 200px);
+    justify-items: center;
+    justify-content: center;
+    padding: 92px 0;
+    width: 100%;
     align-items: center;
-    min-width: 100%;
-    min-height: 100%;
     background-color: #2E2C2C;
-    &__content{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: flex-start;
-        box-sizing: border-box;
-        margin-left: auto;
-        margin-right: auto;
-
-        &__card {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 16px
-        }
-    } 
+    min-height: 100vh;
 }
