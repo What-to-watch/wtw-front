@@ -36,7 +36,6 @@ export const LoadingMovieGrid = (props) => {
 const MovieGrid = () => {
     const state = usePathSelector("movies.query")
     const { loading, data, error } = useMovies()
-
     const renderLoading = () => (
         <LoadingMovieGrid length={state.resultsPerPage > 100 ? 80 : state.resultsPerPage}/>
     )

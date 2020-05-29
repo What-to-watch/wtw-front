@@ -1,21 +1,30 @@
-import React, { useState } from 'react'
+import { find } from 'ramda'
+import { useDispatch } from 'react-redux'
+import { useQuery } from '@apollo/react-hooks'
+import React, { useState, useRef } from 'react'
 import SearchField from '../../components/SearchField'
 import FilterModal from '../../components/FilterModal'
-import "./styles.scss"
+import { GENRE_LIST } from '../../queries'
+import { setGenresFilter, setTitleSearch, resetCursors } from '../../state/movies'
+import debounce from '../../utils/debounce'
+
 import logo from './wtw_logo.svg'
 import filterIcon from './filter.svg'
-import { useQuery } from '@apollo/react-hooks'
-import { GENRE_LIST } from '../../queries'
-import { useDispatch } from 'react-redux'
-import { setGenresFilter } from '../../state/movies'
-import { find } from 'ramda'
+import "./styles.scss"
+
+const debounceSearch = debounce((value,dispatch) => {
+    dispatch(setTitleSearch(value))
+    dispatch(resetCursors())
+},200)
+
 
 const TopBar = () => {
     const { data, loading } = useQuery(GENRE_LIST)
     const dispatch = useDispatch();
+    const countRef = useRef(0)
 
-    const handleSeachChange = (value) => {
-        
+    const handleSeachChange = (e) => {
+        debounceSearch(e.target.value,dispatch);
     }
 
     const handleGenreChange = (genres) => {
@@ -29,6 +38,10 @@ const TopBar = () => {
                 )
             }).filter(Boolean)
             dispatch(setGenresFilter(mapped))
+            if( mapped.length !== countRef.current ){
+                countRef.current = mapped.length
+                dispatch(resetCursors())
+            }
         }
     }
 

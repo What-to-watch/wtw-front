@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Pagination from '../../components/Pagination';
 import Select from '../../components/Select';
 import getClassName from '../../utils/getClassName';
@@ -60,6 +60,13 @@ const Footer = () => {
         from: 1,
         to: 100,
     })
+
+    useEffect(() => {
+        setPagination(() => ({ 
+            from: 1, 
+            to: clamp(1,total)(results)
+        }))
+    },[total,setPagination])
     
     const handleSortChange = (sort) => (value) => {
         if ( sort === 'parameter' ) {
@@ -72,7 +79,7 @@ const Footer = () => {
 
     const handleResultChange = (value) => {
         dispatch(setResultsPerPage(value));
-        setPagination( p => ({ ...p, to: p.from + value - 1 }))
+        setPagination( p => ({ ...p, to: clamp(1,total)(p.from + value - 1) }))
         setOpen('');
     }
 

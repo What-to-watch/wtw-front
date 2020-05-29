@@ -29,7 +29,10 @@ const SearchField = React.forwardRef((props,ref) => {
 		setValue(e.target.value);
 		onChange(e, props)
     }
-    const clearValue = ()=>{setValue('')}
+    const clearValue = () => {
+        setValue('')
+        onChange({ target: {value:""}},props)
+    }
 
     const innerRef = useRef()
     useImperativeHandle(ref, () => ({
