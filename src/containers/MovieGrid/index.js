@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import React from 'react';
 import MovieCard, { LoadingMovieCard } from '../../components/MovieCard';
 import getRandomHue from '../../utils/getRandomHue';
-import { movies } from '../../state/movieState';
+import { useMovies } from '../../state/movies/hooks'
+import { usePathSelector } from 'redux-utility';
 
 import './styles.scss';
-import { INIT_MOVIES_QUERY } from '../../queries';
 
 export const LoadingMovieGrid = (props) => {
     const { length = 100, hue = '' } = props;
@@ -24,18 +23,8 @@ export const LoadingMovieGrid = (props) => {
 
 
 const MovieGrid = () => {
-    const { state } = useContext(movies);
-
-    const { loading, data, error } = useQuery(
-        INIT_MOVIES_QUERY,  
-        { 
-            errorPolicy: 'ignore', 
-            variables: {
-                ...state,
-                first: state.resultsPerPage
-            }
-        }
-    );
+    const state = usePathSelector("movies.query")
+    const { loading, data, error } = useMovies()
 
     const renderLoading = () => (
         <LoadingMovieGrid length={state.resultsPerPage > 100 ? 80 : state.resultsPerPage}/>
