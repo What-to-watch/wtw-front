@@ -1,15 +1,14 @@
+import React, { useState, useRef } from 'react'
 import { find } from 'ramda'
 import { useDispatch } from 'react-redux'
 import { useQuery } from '@apollo/react-hooks'
-import React, { useState, useRef } from 'react'
 import SearchField from '../../components/SearchField'
 import FilterModal from '../../components/FilterModal'
 import { GENRE_LIST } from '../../queries'
 import { setGenresFilter, setTitleSearch, resetCursors } from '../../state/movies'
 import debounce from '../../utils/debounce'
-
 import logo from './wtw_logo.svg'
-import filterIcon from './filter.svg'
+import getClassName from '../../utils/getClassName'
 import "./styles.scss"
 
 const debounceSearch = debounce((value,dispatch) => {
@@ -46,14 +45,33 @@ const TopBar = () => {
     }
 
     const [open, setOpen] = useState(false)
+    const [hover, setHover] = useState(false)
+
+    const figureClass = getClassName({
+        "topbar__left-content__filter": true,
+        "topbar__left-content__filter--hover": open || hover
+    })
+
+    const filterIconClass = getClassName({
+       "topbar__left-content__filter__icon": true,
+       "topbar__left-content__filter__icon--active": open || countRef.current !== 0
+    })
+
     return (
         <header className="topbar">
             <figure className="topbar__logo">
                 <img src={logo} alt="logo"/>
             </figure>
             <section className="topbar__left-content">
-                <figure className="topbar__left-content__filter" onClick={() => setOpen(!open)}>
-                    <img src={filterIcon} alt="filter"/>
+                <figure 
+                    aria-label="filter icon"
+                    className={figureClass}
+                    onMouseEnter={() => setHover(true)}
+                    onMouseLeave={() => setHover(false)}
+                >
+                    <svg className={filterIconClass} onClick={() => setOpen(!open)}>
+                        <use xlinkHref={"/icons/defs.svg#filter"}></use>
+                    </svg>
                 </figure>
                 <SearchField onChange={handleSeachChange} />
                 <FilterModal open={open} onGenreChange={handleGenreChange} />

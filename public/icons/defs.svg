@@ -9,5 +9,9 @@
 
 
         </symbol>
+
+        <symbol id="filter">
+          <path d="M25 1L1 1L11 12.5V21L15 25V12.5L21 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
     </defs>
 </svg>
