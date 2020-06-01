@@ -66,7 +66,7 @@ const Footer = () => {
             from: total === 0 ? 0 : 1, 
             to: total === 0 ? 0 : clamp(1,total)(results)
         }))
-    },[total,setPagination])
+    },[total,setPagination,results])
     
     const handleSortChange = (sort) => (value) => {
         if ( sort === 'parameter' ) {
