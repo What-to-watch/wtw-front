@@ -79,7 +79,10 @@ const Footer = () => {
 
     const handleResultChange = (value) => {
         dispatch(setResultsPerPage(value));
-        setPagination( p => ({ ...p, to: clamp(1,total)(p.from + value - 1) }))
+        setPagination( p => ({ 
+            from: total === 0 ? 0 : p.from , 
+            to:  total === 0 ? 0 : clamp(1,total)(p.from + value - 1) 
+        }))
         setOpen('');
     }
 

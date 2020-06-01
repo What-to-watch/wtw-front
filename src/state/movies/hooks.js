@@ -14,13 +14,11 @@ export const useMovies = () => {
     const queryOpts = usePathSelector("movies.query");
     const queryObj = useQuery(INIT_MOVIES_QUERY,{
         ...queryOpts,
-        errorPolicy: "ignore",
         pollInterval: 0,
     })
     useEffect(() => {
         queryObj.refetch({
             ...queryOpts,
-            errorPolicy: "ignore",
             pollInterval: 0,
         })
     },[queryOpts,queryObj])
