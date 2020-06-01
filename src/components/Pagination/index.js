@@ -12,11 +12,11 @@ const Pagination = (props) => {
     
     return (
         <div className="pagination">
-            <button onClick={handlePage("first")} disabled={from === 1 || loading}>
+            <button onClick={handlePage("first")} disabled={from <= 1 || loading}>
                 <img src="icons/pagination-line.svg" alt="|"/>
                 <img src="icons/left-arrow.svg" alt="<"/>
             </button>
-            <button onClick={handlePage("previous")} disabled={from === 1 || loading}>
+            <button onClick={handlePage("previous")} disabled={from <= 1 || loading}>
                 <img src="icons/left-arrow.svg" alt="<"/>
             </button>
             <div className="pagination__description">
@@ -25,10 +25,10 @@ const Pagination = (props) => {
                 <span>{to}</span>
                 <span> of {total} </span>
             </div>
-            <button onClick={handlePage("next")} disabled={to === total || loading}>
+            <button onClick={handlePage("next")} disabled={to >= total || loading}>
                 <img src="icons/right-arrow.svg" alt=">"/>
             </button>
-            <button onClick={handlePage("last")} disabled={to === total || loading}>
+            <button onClick={handlePage("last")} disabled={to >= total || loading}>
                 <img src="icons/right-arrow.svg" alt=">"/>
                 <img src="icons/pagination-line.svg" alt="|"/>
             </button>

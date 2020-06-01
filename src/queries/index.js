@@ -9,8 +9,13 @@ export const INIT_MOVIES_QUERY = gql`
         $after: String
         $last: Int!
         $before: String
+        $genres: [GenreInput]
         ) {
-        movies (first:$first, after:$after, last: $last, before: $before , title:$title, sortField:$sortField, sortOrder:$sortOrder){
+        movies (
+            first:$first, after:$after, last: $last, before: $before , 
+            title:$title, sortField:$sortField, sortOrder:$sortOrder,
+            genres: $genres
+        ){
             totalCount,
             edges {
                 node {
@@ -23,6 +28,15 @@ export const INIT_MOVIES_QUERY = gql`
                 },
                 cursor
             }   
+        }
+    }
+`
+
+export const GENRE_LIST = gql`
+    query genreList {
+        genres {
+            id,
+            name
         }
     }
 `

@@ -6,6 +6,17 @@ import { usePathSelector } from 'redux-utility';
 
 import './styles.scss';
 
+const removeDuplicates = arr => {
+    return arr.reduce(
+        (acc,movie) => {
+            return acc.find(x => x.node.id === movie.node.id) ?
+                acc:
+                [...acc, movie]
+        }
+        ,[]
+    )
+}
+
 export const LoadingMovieGrid = (props) => {
     const { length = 100, hue = '' } = props;
     const keys = Array.from(Array(length).keys());
@@ -13,7 +24,7 @@ export const LoadingMovieGrid = (props) => {
         <div className="movie-grid">
             {keys.map((key) => (
                 <LoadingMovieCard 
-                    key={key.toString()} 
+                    key={ key.toString()} 
                     hue={ hue === '' ? getRandomHue() : hue }
                 />
             ))}
@@ -25,7 +36,6 @@ export const LoadingMovieGrid = (props) => {
 const MovieGrid = () => {
     const state = usePathSelector("movies.query")
     const { loading, data, error } = useMovies()
-
     const renderLoading = () => (
         <LoadingMovieGrid length={state.resultsPerPage > 100 ? 80 : state.resultsPerPage}/>
     )
@@ -33,14 +43,14 @@ const MovieGrid = () => {
     const renderResults = () => (
         <div className="movie-grid">
             {
-                data.movies.edges.map((movie => {
-                    const genres = movie.node.genres ? movie.node.genres.map((genre => genre.name)) : [];
+                removeDuplicates(data.movies.edges).map((movie => {
+                    const genres = movie.node?.genres?.map((genre => genre.name));
                     return (
                         <MovieCard 
                             {...movie.node}
                             genres={genres}
                             src={movie.node.posterUrl}
-                            key={movie.node.id}
+                            key={"Movie" + movie.node.id}
                         />)
                 }))
             }

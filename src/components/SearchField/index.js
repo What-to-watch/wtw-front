@@ -22,14 +22,17 @@ const SearchIcon =(props) =>{
 
 
 const SearchField = React.forwardRef((props,ref) => {
-    const { intialValue='',id='', name='', placeholder = 'Search', onChange = x=>x} = props
+    const { intialValue='',id, name, placeholder = 'Search', onChange = x=>x} = props
     const [value, setValue] = useState(intialValue);
 
     const handleChange = (e) => {
 		setValue(e.target.value);
 		onChange(e, props)
     }
-    const clearValue = ()=>{setValue('')}
+    const clearValue = () => {
+        setValue('')
+        onChange({ target: {value:""}},props)
+    }
 
     const innerRef = useRef()
     useImperativeHandle(ref, () => ({

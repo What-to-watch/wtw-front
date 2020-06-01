@@ -67,7 +67,8 @@ const FilterModal = (props) => {
             <div className="filter-modal__division" />
             <section className="filter-modal__content">
                 <form onSubmit={handleSubmit}>
-                    <SearchField 
+                    <SearchField
+                        placeholder="Add Genre"
                         ref={inputRef}
                         onChange={({ target: { value } }) => setNewGenre(value)}
                     />
