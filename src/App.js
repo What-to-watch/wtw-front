@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Provider } from 'react-redux'
 import { ApolloProvider } from '@apollo/react-hooks';
 import Footer from './containers/Footer';
@@ -12,13 +12,26 @@ import { initStore } from './store';
 const store = initStore();
 
 function App() {
+  const [ movieId, setMovieId ] = useState('');
+  const [ openModal, setOpenModal ] = useState(false);
+
+  const handleMovieId = (id) => {
+    setMovieId(id);
+    setOpenModal(true);
+  }
+
+  const handleClose = () => {
+    setMovieId('');
+    setOpenModal(false);
+  }
+
   return (
     <ApolloProvider client={client}>
       <Provider store={store}>
         <TopBar />
-        <MovieGrid />
+        <MovieGrid onClickMovie={handleMovieId}/>
         <Footer />
-        <MovieModal />
+        <MovieModal id={movieId} open={openModal} onClose={handleClose}/>
       </Provider>
     </ApolloProvider>
   );

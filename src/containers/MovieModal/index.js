@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { useDispatch } from 'react-redux';
-import { usePathSelector } from 'redux-utility';
 
-import { setMovieId } from '../../state/movies';
 
 import LineChart from '../../components/LineChart';
 
@@ -13,24 +10,17 @@ import getClassName from '../../utils/getClassName';
 import './styles.scss';
 
 
-const MovieModal = () => {
-    const id = usePathSelector('movies.movieId');
-    const [ open, setOpen ] = useState(false);
+const MovieModal = (props) => {
+    const { id, open, onClose } = props;
     const { data, loading, error } = useQuery(MOVIE_INFO, {
         variables: {
             id
         }
     })
 
-    const dispatch = useDispatch();
-
     const handleResetId = () => {
-        dispatch(setMovieId(''));
+        onClose();
     }
-
-    useEffect(()=> {
-        id==='' ? setOpen(false) : setOpen(true);
-    }, [id])
 
     const closeButton = () => {
         return(
