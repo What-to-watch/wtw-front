@@ -25,9 +25,7 @@ class LineCart extends React.Component {
     }
 
     componentWillUnmount() {
-        if(this.chart._super) {
-            this.chart.dispose();
-        }
+        this.chart.dispose();
     }
 
     initChart() {

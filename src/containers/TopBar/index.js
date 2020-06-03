@@ -66,10 +66,11 @@ const TopBar = () => {
                 <figure 
                     aria-label="filter icon"
                     className={figureClass}
+                    onClick={() => setOpen(!open)}
                     onMouseEnter={() => setHover(true)}
                     onMouseLeave={() => setHover(false)}
                 >
-                    <svg className={filterIconClass} onClick={() => setOpen(!open)}>
+                    <svg className={filterIconClass}>
                         <use xlinkHref={"/icons/defs.svg#filter"}></use>
                     </svg>
                 </figure>
