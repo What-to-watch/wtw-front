@@ -32,6 +32,28 @@ export const INIT_MOVIES_QUERY = gql`
     }
 `
 
+export const MOVIE_INFO = gql`
+    query movie($id: int) {
+        movie(id: $id) {
+            id,
+            title,
+            genres{
+                name
+            },
+            releaseDate,
+            budget,
+            posterUrl,
+            averageRating {
+                rating
+            },
+            yearlyAverageRating {
+                date: year,
+                rating
+            },
+        }
+    }
+`;
+
 export const GENRE_LIST = gql`
     query genreList {
         genres {

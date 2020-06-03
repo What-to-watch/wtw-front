@@ -10,10 +10,12 @@ export const SET_AFTER_CURSOR = 'SET_AFTER_CURSOR';
 export const SET_BEFORE_CURSOR = 'SET_BEFORE_CURSOR';
 export const RESET_CURSORS = 'RESET_CURSORS';
 export const SET_MOVIES = 'SET_MOVIES';
+export const SET_MOVIE_ID = 'SET_MOVIE_ID';
 
 const setPath = (p,value,obj) => assocPath(p.split("."),value,obj)
 const payloadOr = (or,action) => propOr(or,"payload",action)
 const setData = (or) => (state,action) => setPath(`data`,payloadOr(or,action),state);
+const setMovieID = (or) => (state,action) => setPath(`movieId`,payloadOr(or,action),state);
 const setQueryOption = (opt,or) => (state,action) => setPath(`query.${opt}`,payloadOr(or,action),state);
 const composeQueryOpts = (...muts) => (state,action) =>  reduce((accState,nextReducer) => nextReducer(accState,action) , state)(muts)
 
@@ -39,7 +41,8 @@ const moviesReducer = createReducer({
         setQueryOption("after" ,null),
         setQueryOption("before",null)
     ),
-    [SET_MOVIES]: setData([])
+    [SET_MOVIES]: setData([]),
+    [SET_MOVIE_ID]: setMovieID('')
 })
 
 export default moviesReducer;
@@ -53,3 +56,4 @@ export const setAfterCursor = unaryActionCreator(SET_AFTER_CURSOR);
 export const setBeforeCursor = unaryActionCreator(SET_BEFORE_CURSOR);
 export const resetCursors = nullaryActionCreator(RESET_CURSORS);
 export const setMovies = unaryActionCreator(SET_MOVIES);
+export const setMovieId = unaryActionCreator(SET_MOVIE_ID);
