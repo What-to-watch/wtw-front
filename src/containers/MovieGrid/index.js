@@ -1,8 +1,11 @@
 import React from 'react';
 import MovieCard, { LoadingMovieCard } from '../../components/MovieCard';
 import getRandomHue from '../../utils/getRandomHue';
-import { useMovies } from '../../state/movies/hooks'
+import { useMovies } from '../../state/movies/hooks';
+import { useDispatch } from 'react-redux';
 import { usePathSelector } from 'redux-utility';
+
+import { setMovieId } from '../../state/movies';
 
 import './styles.scss';
 
@@ -36,6 +39,11 @@ export const LoadingMovieGrid = (props) => {
 const MovieGrid = () => {
     const state = usePathSelector("movies.query")
     const { loading, data, error } = useMovies()
+    const dispatch = useDispatch();
+
+    const onChangeId = (id) => {
+        dispatch(setMovieId(id));
+    }
     const renderLoading = () => (
         <LoadingMovieGrid length={state.resultsPerPage > 100 ? 80 : state.resultsPerPage}/>
     )
@@ -51,6 +59,7 @@ const MovieGrid = () => {
                             genres={genres}
                             src={movie.node.posterUrl}
                             key={"Movie" + movie.node.id}
+                            onClick={onChangeId}
                         />)
                 }))
             }

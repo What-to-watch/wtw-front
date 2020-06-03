@@ -9,11 +9,14 @@ const getGradient = (hue) => {
 }
 
 const MovieCard = ({...props}) => {
-    const { title, genres, id, src, hue = getRandomHue() } = props;
+    const { title, genres, id, src, hue = getRandomHue(), onClick = x=>x } = props;
     const genresString = genres.join('/');
     const gradient = getGradient(hue);
+    const handleClick = () => {
+        onClick(id);
+    }
     return(
-        <a className="movie-card" href={`#${id}`}>
+        <a className="movie-card" href={`#${id}`} onClick={handleClick}>
             <div className="movie-card__background" >
                 <img 
                     className="movie-card__background__image" 
