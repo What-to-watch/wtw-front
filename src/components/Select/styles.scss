@@ -19,7 +19,8 @@
 
     & .list{
         position: absolute;
-        bottom: 100%;
+        top: 200%;
+        bottom: auto;
         display: hidden;
         z-index: -100;
         transition: opacity ease-out 150ms;
@@ -31,6 +32,8 @@
             display: block;
             opacity: 1;
             z-index: 99;
+            top: auto;
+            bottom: 100%;
         }
 
         & .select__button{
