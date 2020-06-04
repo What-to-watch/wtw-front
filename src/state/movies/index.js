@@ -39,7 +39,7 @@ const moviesReducer = createReducer({
         setQueryOption("after" ,null),
         setQueryOption("before",null)
     ),
-    [SET_MOVIES]: setData([])
+    [SET_MOVIES]: setData([]),
 })
 
 export default moviesReducer;

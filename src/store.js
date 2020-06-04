@@ -16,7 +16,7 @@ const initialState = {
             title: '',
             genres: [],
             pageInfo: {},
-        }
+        },
     }
 }
 
