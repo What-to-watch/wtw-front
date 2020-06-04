@@ -1,0 +1,21 @@
+.top-ten {
+    margin: 40px 70px;
+    width: calc( 100% -140px);
+    overflow: hidden;
+    &__title {
+        margin: 0 0 24px 15px;
+        color: white;
+        font-weight: 900;
+        font-size: 24px;
+    }
+    & .carousel {
+        padding: 0 15px;
+        &:focus {
+            outline: none !important;
+        }
+    }
+    & .movie-card {
+        width: 166px;
+        height: 239px;
+    }
+}
