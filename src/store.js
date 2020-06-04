@@ -17,7 +17,6 @@ const initialState = {
             genres: [],
             pageInfo: {},
         },
-        movieId: ''
     }
 }
 

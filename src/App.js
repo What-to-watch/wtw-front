@@ -13,16 +13,13 @@ const store = initStore();
 
 function App() {
   const [ movieId, setMovieId ] = useState('');
-  const [ openModal, setOpenModal ] = useState(false);
 
   const handleMovieId = (id) => {
     setMovieId(id);
-    setOpenModal(true);
   }
 
   const handleClose = () => {
     setMovieId('');
-    setOpenModal(false);
   }
 
   return (
@@ -31,7 +28,7 @@ function App() {
         <TopBar />
         <MovieGrid onClickMovie={handleMovieId}/>
         <Footer />
-        <MovieModal id={movieId} open={openModal} onClose={handleClose}/>
+        <MovieModal id={movieId} open={movieId !== ''} onClose={handleClose}/>
       </Provider>
     </ApolloProvider>
   );

@@ -22,7 +22,7 @@ const MovieModal = (props) => {
         onClose();
     }
 
-    const closeButton = () => {
+    const CloseButton = () => {
         return(
             <button onClick={handleResetId} className="movie-modal__button">
                 <img src="icons/close.svg" alt="x"/>
@@ -33,7 +33,7 @@ const MovieModal = (props) => {
     const renderLoading = () => {
         return (
             <div className="movie-modal__content__loading">
-                {closeButton()}
+                <CloseButton/>
                 <img src="https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif" alt="loading"/>
             </div>
         )
@@ -42,7 +42,7 @@ const MovieModal = (props) => {
     const renderError = () => {
         return (
             <div className="movie-modal__content__error">
-                {closeButton()}
+                <CloseButton/>
                 <img src="https://media.giphy.com/media/Rkis28kMJd1aE/giphy.gif" alt="error"/>
             </div>
         )
@@ -63,7 +63,7 @@ const MovieModal = (props) => {
         const chartData = yearlyAverageRating.map(x=>{return{...x, date: x.date.toString()}})
         return (
             <div className="movie-modal__content__info">
-                {closeButton()}
+                <CloseButton/>
                 <header>
                     <div>
                         <h2>{title}</h2>
