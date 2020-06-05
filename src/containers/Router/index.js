@@ -29,17 +29,16 @@ const Router = () => {
         <Switch value={current}>
             <Route path="home">
                 <Home onClickMovie={setMovieId}/>
-                <MovieModal id={movieId} open={movieId} onClose={handleClose}/>
             </Route>
             <Route path="top">
-                <TopsContainer />
+                <TopsContainer onClickMovie={setMovieId}/>
             </Route>
             <Route path="catalog">
                 <MovieGrid onClickMovie={setMovieId}/>
-                <MovieModal id={movieId} open={movieId} onClose={handleClose}/>
                 <Footer />
             </Route>
         </Switch>
+        <MovieModal id={movieId} open={movieId} onClose={handleClose}/>
     </AppContainer>
 }
 

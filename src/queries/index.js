@@ -64,8 +64,8 @@ export const GENRE_LIST = gql`
 `
 
 export const TOP_TEN = gql`
-    query Topten($id: Long) {
-        topListing (n: 10, genreId: $id){
+    query Topten($id: String) {
+        topListing (n: 10, genreId: $id ){
             id,
             title,
             posterUrl,

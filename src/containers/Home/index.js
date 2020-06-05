@@ -36,7 +36,7 @@ const Top100 = (props) => {
 
 const Home = (props) => {
     const { onClickMovie } = props;
-    const top10 = useQuery(TOP_TEN, { variables: { id: 1571958030336}});
+    const top10 = useQuery(TOP_TEN, { variables: { id: "1571958030336" }});
     const top100 = useQuery(TOP_100,{ variables: { n: 100 }});
 
     return (
