@@ -10,8 +10,8 @@ import { goTo } from '../../state/routing'
 import debounce from '../../utils/debounce'
 import logo from './wtw_logo.svg'
 import getClassName from '../../utils/getClassName'
-import "./styles.scss"
 import { usePathSelector } from 'redux-utility'
+import "./styles.scss"
 
 const debounceSearch = debounce((value,dispatch) => {
     dispatch(setTitleSearch(value))
@@ -65,7 +65,7 @@ const TopBar = () => {
 
     return (
         <header className="topbar">
-            <figure className="topbar__logo">
+            <figure className="topbar__logo" onClick={() => dispatch(goTo("home"))}>
                 <img src={logo} alt="logo"/>
             </figure>
             <section className="topbar__left-content">
