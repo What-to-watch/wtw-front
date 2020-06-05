@@ -1,0 +1,16 @@
+.home {
+    width: 100%;
+    background-color: #2E2C2C;
+    padding: 92px 0 0;
+    &__subtitle {
+        color: white;
+        margin: 0 24px;
+        padding: 15px 24px;
+        border-bottom: 1px solid #828080;
+        font-weight: 900;
+        font-size: 28px;
+    }
+    & .movie-grid {
+        padding-top: 50px;
+    }
+}

@@ -1,0 +1,14 @@
+.tops {
+    background-color: #2E2C2C;
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+    padding-top: 92px;
+
+    &__title {
+        margin: 0 24px;
+        padding: 15px 24px;
+        font-size: 28px;
+        border-bottom: 1px solid #828080;
+    }
+}

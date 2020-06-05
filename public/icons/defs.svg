@@ -13,5 +13,18 @@
         <symbol id="filter">
           <path d="M25 1L1 1L11 12.5V21L15 25V12.5L21 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </symbol>
+
+        <symbol id="home">
+          <path d="M22.6667 12.4545H27L14 1L1 12.4545H5.33333V25H22.6667V18.1818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol >
+
+        <symbol id="top">
+          <path d="M28 10.9311L17.6705 10.954L14.5 1L11.3295 10.954L1 10.9311L9.37 17.0602L6.15654 27L14.5 20.834L22.8435 27L19.63 17.0602L21.7225 15.5279L23.815 13.9956" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol >
+
+        <symbol id="catalog">
+          <path d="M25 25H15V15H25V20M1 1H11V11H1V1ZM1 15H11V25H1V15ZM15 1H25V11H15V1Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol >
+
     </defs>
 </svg>

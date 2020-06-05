@@ -3,6 +3,11 @@ import { getDevtoolsCompose } from "redux-utility"
 import rootReducer from "./reducer"
 
 const initialState = {
+    routing: {
+        current: "home",
+        previous: [],
+        next: []
+    },
     movies: {
         data: [],
         query: {

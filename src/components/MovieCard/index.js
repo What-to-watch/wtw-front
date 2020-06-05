@@ -12,7 +12,8 @@ const MovieCard = ({...props}) => {
     const { title, genres, id, src, hue = getRandomHue(), onClick = x=>x } = props;
     const genresString = genres.join('/');
     const gradient = getGradient(hue);
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.preventDefault()
         onClick(id);
     }
     return(
