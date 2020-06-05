@@ -6,9 +6,9 @@ import './styles.scss';
 
 
 const flickityOptions = {
-    initialIndex: 1,
+    initialIndex: 2,
     pageDots: false,
-    prevNextButtons: false,
+    prevNextButtons: true,
     draggable: true,
     contain: true,
 }
