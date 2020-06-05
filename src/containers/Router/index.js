@@ -6,6 +6,7 @@ import MovieGrid from '../MovieGrid'
 import Home from '../Home'
 import Footer from '../Footer'
 import MovieModal from '../MovieModal'
+import TopsContainer from '../TopsContainer'
 
 const Route = ({ path, children }) => children
 
@@ -30,7 +31,9 @@ const Router = () => {
                 <Home onClickMovie={setMovieId}/>
                 <MovieModal id={movieId} open={movieId} onClose={handleClose}/>
             </Route>
-            <Route path="top">Top</Route>
+            <Route path="top">
+                <TopsContainer />
+            </Route>
             <Route path="catalog">
                 <MovieGrid onClickMovie={setMovieId}/>
                 <MovieModal id={movieId} open={movieId} onClose={handleClose}/>
