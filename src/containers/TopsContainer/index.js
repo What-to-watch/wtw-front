@@ -169,14 +169,14 @@ const mockdata = {
 
 const TopRow = ({ id, name, onClickMovie }) => {
   const { data, loading, error } = useQuery(TOP_TEN,{
-    id: `${id}`,
+    variables: {id: `${id}`},
   })
 
   return loading ? <LoadingTopTen name={name}/> : 
   <TopTen 
     id={id}
     name={name}
-    movies={mockdata}
+    movies={data}
     onClickItem={onClickMovie}
   />
 }
