@@ -1,6 +1,6 @@
 import React from 'react';
 import Flickity from 'react-flickity-component';
-import MovieCard from '../MovieCard';
+import MovieCard, { LoadingMovieCard } from '../MovieCard';
 
 import './styles.scss';
 
@@ -11,6 +11,34 @@ const flickityOptions = {
     prevNextButtons: false,
     draggable: true,
     contain: true,
+}
+
+export const LoadingTopTen = (props) => {
+    const { name } = props;
+    const keys = Array.from(Array(10).keys());
+    return (
+        <div className="top-ten">
+            <h3 className="top-ten__title">{name}</h3>
+            <Flickity
+                className={'carousel'}
+                elementType={'div'} 
+                options={flickityOptions} 
+                disableImagesLoaded={false}
+                reloadOnUpdate
+                static
+            >
+                {
+                    keys.map( key => {
+                        return (
+                            <LoadingMovieCard 
+                                key={key.toString()}
+                            />
+                        )
+                    })
+                }
+            </Flickity>
+        </div>
+    )
 }
 
 const TopTen = (props) => {
@@ -27,14 +55,14 @@ const TopTen = (props) => {
                 static
             >
                 {
-                    movies.map( movie => {
-                        const genres = movie.node?.genres?.map((genre => genre.name));
+                    movies.topListing.map( movie => {
+                        const genres = movie.genres.map((genre => genre.name));
                         return (
                             <MovieCard 
-                                {...movie.node}
+                                {...movie}
                                 genres={genres}
-                                src={movie.node.posterUrl}
-                                key={"Movie" + movie.node.id}
+                                src={movie.posterUrl}
+                                key={"Movie" + movie.id}
                                 onClick={onClickItem}
                             />
                         )

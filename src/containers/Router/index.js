@@ -3,6 +3,7 @@ import { usePathSelector } from 'redux-utility'
 import { pathEq, propEq } from 'ramda'
 import AppContainer from '../AppContainer'
 import MovieGrid from '../MovieGrid'
+import Home from '../Home'
 import Footer from '../Footer'
 import MovieModal from '../MovieModal'
 
@@ -25,7 +26,10 @@ const Router = () => {
 
     return <AppContainer>
         <Switch value={current}>
-            <Route path="home">Home</Route>
+            <Route path="home">
+                <Home onClickMovie={setMovieId}/>
+                <MovieModal id={movieId} open={movieId} onClose={handleClose}/>
+            </Route>
             <Route path="top">Top</Route>
             <Route path="catalog">
                 <MovieGrid onClickMovie={setMovieId}/>

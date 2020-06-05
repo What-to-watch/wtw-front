@@ -62,3 +62,29 @@ export const GENRE_LIST = gql`
         }
     }
 `
+
+export const TOP_TEN = gql`
+    query Topten($id: Long) {
+        topListing (n: 10, genreId: $id){
+            id,
+            title,
+            posterUrl,
+            genres {
+                name
+            }
+        }   
+    }
+`
+
+export const TOP_100 = gql`
+    query Top100($n: Int) {
+        topListing (n: $n){
+            id,
+            title,
+            posterUrl,
+            genres {
+                name
+            }
+        }   
+    }
+`
