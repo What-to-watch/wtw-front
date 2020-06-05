@@ -6,10 +6,12 @@ import SearchField from '../../components/SearchField'
 import FilterModal from '../../components/FilterModal'
 import { GENRE_LIST } from '../../queries'
 import { setGenresFilter, setTitleSearch, resetCursors } from '../../state/movies'
+import { goTo } from '../../state/routing'
 import debounce from '../../utils/debounce'
 import logo from './wtw_logo.svg'
 import getClassName from '../../utils/getClassName'
 import "./styles.scss"
+import { usePathSelector } from 'redux-utility'
 
 const debounceSearch = debounce((value,dispatch) => {
     dispatch(setTitleSearch(value))
@@ -19,10 +21,14 @@ const debounceSearch = debounce((value,dispatch) => {
 
 const TopBar = () => {
     const { data, loading } = useQuery(GENRE_LIST)
+    const current = usePathSelector("routing.current");
     const dispatch = useDispatch();
     const countRef = useRef(0)
-
+    const isCatalog = current === "catalog"
     const handleSeachChange = (e) => {
+        if( !isCatalog ){
+            dispatch(goTo("catalog"))
+        }
         debounceSearch(e.target.value,dispatch);
     }
 
@@ -63,7 +69,7 @@ const TopBar = () => {
                 <img src={logo} alt="logo"/>
             </figure>
             <section className="topbar__left-content">
-                <figure 
+                {isCatalog && <figure 
                     aria-label="filter icon"
                     className={figureClass}
                     onClick={() => setOpen(!open)}
@@ -73,7 +79,7 @@ const TopBar = () => {
                     <svg className={filterIconClass}>
                         <use xlinkHref={"/icons/defs.svg#filter"}></use>
                     </svg>
-                </figure>
+                </figure>}
                 <SearchField onChange={handleSeachChange} />
                 <FilterModal open={open} onGenreChange={handleGenreChange} />
             </section>
