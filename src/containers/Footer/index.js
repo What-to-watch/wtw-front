@@ -48,7 +48,7 @@ const getPrevPagination = (perPage,total) => p => {
 const Footer = () => {
     const queryOptions = usePathSelector("movies.query");
     const dispatch = useDispatch();
-    const { before, after, total, loading } = useMovies()
+    const { before, after, total, loading } = useMovies();
 
     const results = queryOptions.resultsPerPage;
 
@@ -66,7 +66,7 @@ const Footer = () => {
             from: total === 0 ? 0 : 1, 
             to: total === 0 ? 0 : clamp(1,total)(results)
         }))
-    },[total,setPagination,results])
+    },[total])
     
     const handleSortChange = (sort) => (value) => {
         if ( sort === 'parameter' ) {

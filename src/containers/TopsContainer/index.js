@@ -1,14 +1,12 @@
 import React from 'react'
-import { useQuery } from "@apollo/react-hooks"
+import { useQuery } from "../../queries/hooks"
 import { GENRE_LIST, TOP_TEN } from '../../queries'
 import TopTen, { LoadingTopTen } from '../../components/TopTen'
 import { sortBy, prop, filter, propEq, compose } from 'ramda'
 import "./styles.scss"
 
 const TopRow = ({ id, name, onClickMovie }) => {
-  const { data, loading } = useQuery(TOP_TEN,{
-    variables: { id: `${id}` },
-  })
+  const { data, loading } = useQuery(TOP_TEN,{ id: `${id}` })
 
   if( loading ){
     return <LoadingTopTen name={name}/>

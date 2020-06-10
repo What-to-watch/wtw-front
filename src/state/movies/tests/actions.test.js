@@ -4,7 +4,7 @@ import {
     SET_SORT_FIELD,
     SET_SORT_ORDER,
     SET_RESULTS_PER_PAGE
-} from '../constants';
+} from '../';
 
 import { 
     setTitleSearch,
@@ -12,7 +12,7 @@ import {
     setSortField,
     setSortOrder,
     setResultsPerPage
-} from '../actions';
+} from '../';
 
 describe('Actions Tests', () => {
     it('Set title action', ()=> {

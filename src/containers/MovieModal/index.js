@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '../../queries/hooks';
 
 
 import LineChart from '../../components/LineChart';
@@ -9,14 +9,9 @@ import getClassName from '../../utils/getClassName';
 
 import './styles.scss';
 
-
 const MovieModal = (props) => {
     const { id, open, onClose } = props;
-    const { data, loading, error } = useQuery(MOVIE_INFO, {
-        variables: {
-            id
-        }
-    })
+    const { data, loading, error } = useQuery(MOVIE_INFO, { id })
 
     const handleResetId = () => {
         onClose();
