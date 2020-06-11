@@ -27,16 +27,15 @@ const useDeepComparison = val => {
 
 export const useQuery = (query,vars,clientOpts) => {
     const [ state, dispatch ] = useReducer(reducer,initial);
-    const success = payload => dispatch({ type: "success", payload })
-    const error = payload => dispatch({ type: "error", payload })
     const opts = useDeepComparison(vars)
-
     useEffect(() => {
+        let cancelled = false;
         dispatch({ type: "start" })
         new GraphQLClient(url,clientOpts)
             .request(query, opts)
-            .then(success)
-            .catch(error);
+            .then(payload => !cancelled && dispatch({ type: "success", payload }))
+            .catch(payload => !cancelled && dispatch({ type: "error", payload }));
+        return () => cancelled = true;
     },[ query, clientOpts, opts ])
 
     return state
