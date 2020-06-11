@@ -38,7 +38,7 @@ const Router = () => {
                 <Footer />
             </Route>
         </Switch>
-        <MovieModal id={movieId} open={movieId} onClose={handleClose}/>
+        {movieId && <MovieModal id={movieId} open={movieId} onClose={handleClose}/>}
     </AppContainer>
 }
 
