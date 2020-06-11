@@ -9,7 +9,6 @@ const initialState = {
         next: []
     },
     movies: {
-        data: [],
         query: {
             resultsPerPage: 100,
             first: 100,
