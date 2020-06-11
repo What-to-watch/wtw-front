@@ -1,6 +1,4 @@
-import gql from 'graphql-tag';
-
-export const INIT_MOVIES_QUERY = gql`
+export const INIT_MOVIES_QUERY = `
     query Movies(
         $title: String
         $sortField: MovieSortField
@@ -32,7 +30,7 @@ export const INIT_MOVIES_QUERY = gql`
     }
 `
 
-export const MOVIE_INFO = gql`
+export const MOVIE_INFO = `
     query movie($id: int) {
         movie(id: $id) {
             id,
@@ -54,7 +52,7 @@ export const MOVIE_INFO = gql`
     }
 `;
 
-export const GENRE_LIST = gql`
+export const GENRE_LIST = `
     query genreList {
         genres {
             id,
@@ -63,7 +61,7 @@ export const GENRE_LIST = gql`
     }
 `
 
-export const TOP_TEN = gql`
+export const TOP_TEN = `
     query Topten($id: String) {
         topListing (n: 10, genreId: $id ){
             id,
@@ -76,7 +74,7 @@ export const TOP_TEN = gql`
     }
 `
 
-export const TOP_100 = gql`
+export const TOP_100 = `
     query Top100($n: Int) {
         topListing (n: $n){
             id,

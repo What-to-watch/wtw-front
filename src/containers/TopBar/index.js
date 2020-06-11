@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { find } from 'ramda'
 import { useDispatch } from 'react-redux'
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery } from '../../queries/hooks'
 import SearchField from '../../components/SearchField'
 import FilterModal from '../../components/FilterModal'
 import { GENRE_LIST } from '../../queries'
@@ -17,7 +17,6 @@ const debounceSearch = debounce((value,dispatch) => {
     dispatch(setTitleSearch(value))
     dispatch(resetCursors())
 },200)
-
 
 const TopBar = () => {
     const { data, loading } = useQuery(GENRE_LIST)

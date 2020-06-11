@@ -1,7 +1,5 @@
-import ApolloClient from 'apollo-boost';
+import { GraphQLClient } from 'graphql-request';
 
-const client = new ApolloClient({
-  uri: 'https://wfh-challenge.herokuapp.com/api/graphql/',
-});
+const client = new GraphQLClient('https://wfh-challenge.herokuapp.com/api/graphql/');
 
 export default client;

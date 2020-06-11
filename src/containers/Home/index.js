@@ -1,15 +1,11 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '../../queries/hooks';
 import MovieCard from '../../components/MovieCard';
 import TopTen, { LoadingTopTen } from '../../components/TopTen';
-
-
 import { TOP_TEN, TOP_100 } from '../../queries';
-
 import { LoadingMovieGrid } from '../MovieGrid';
 
 import '../MovieGrid/styles.scss';
-
 import './styles.scss';
 
 const Top100 = (props) => {
@@ -36,8 +32,8 @@ const Top100 = (props) => {
 
 const Home = (props) => {
     const { onClickMovie } = props;
-    const top10 = useQuery(TOP_TEN, { variables: { id: "1571958030336" }});
-    const top100 = useQuery(TOP_100,{ variables: { n: 100 }});
+    const top10 = useQuery(TOP_TEN, { id: "1571958030336" });
+    const top100 = useQuery(TOP_100,{ n: 100 });
 
     return (
         <div className="home">
