@@ -20,7 +20,7 @@ const reducer = createReducer({
 const useDeepComparison = val => {
     const ref = useRef(val);
     if( !equals(ref.current,val) ){
-        ref.current = val
+        ref.current = {...val}
     }
     return ref.current
 }
@@ -29,21 +29,7 @@ const keyGen = (query,vars,clientOpts) => {
     return btoa(JSON.stringify({ query, vars, clientOpts }))
 }
 
-const cache = (() => {
-    const _inner = {}
-    return {
-        _inner,
-        has(key){
-            return _inner[key] !== undefined
-        },
-        set(key,data){
-            _inner[key] = data;
-        },
-        get(key){
-            return _inner[key];
-        }
-    }
-})()
+const cache = new Map();
 
 const fromCache = key => {
     return {
@@ -53,20 +39,22 @@ const fromCache = key => {
     }
 }
 
-export const useQuery = (query,vars,clientOpts) => {
+export const useQuery = (query,vars,options) => {
+    const queryOptions = useDeepComparison(options)
     const opts = useDeepComparison(vars)
-    const key = keyGen(query,opts,clientOpts);
+    const key = keyGen(query,opts,options);
     const [ state, dispatch ] = useReducer(reducer, cache.has(key) ? fromCache(key) : initial);
     useEffect(() => {
         let cancelled = false;
         if( !cache.has(key) ){
             dispatch({ type: "start" })
-            new GraphQLClient(url,clientOpts)
+            new GraphQLClient(url,queryOptions?.clientOptions)
                 .request(query, opts)
                 .then(payload => {
-                    if(!cancelled){ 
-                        console.log("update")
-                        cache.set(key,payload);
+                    if(!cancelled){
+                        if(!queryOptions?.disableCaching){ 
+                            cache.set(key,payload)
+                        }
                         dispatch({ type: "success", payload }) 
                     }
                 })
@@ -75,8 +63,7 @@ export const useQuery = (query,vars,clientOpts) => {
             !cancelled && dispatch({ type: "success", payload: cache.get(key) }) 
         }
         return () => cancelled = true;
-    },[ query, clientOpts, opts, key ])
-    // For easy debbuging
-    useDebugValue({...state, cache: cache._inner })
+    },[ query, opts, key, queryOptions ])
+    useDebugValue({...state, cache, options })
     return state
 }
