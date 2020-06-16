@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { goTo } from '../../state/routing';
 import getClassName from '../../utils/getClassName';
 import "./styles.scss";
+import { resetCursors } from '../../state/movies';
 
 const NavIcon = ({ icon, to }) => {
     const current = usePathSelector("routing.current");
@@ -16,6 +17,9 @@ const NavIcon = ({ icon, to }) => {
         e.preventDefault();
         if(!active){
             dispatch(goTo(to));
+            if( to !== "catalog" ){
+                dispatch(resetCursors())
+            }
         }
     }
 

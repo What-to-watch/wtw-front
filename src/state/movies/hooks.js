@@ -17,7 +17,7 @@ const cleanData = data => {
 
 export const useMovies = () => {
     const queryOpts = usePathSelector("movies.query");
-    const queryObj = useQuery(INIT_MOVIES_QUERY,queryOpts);
+    const queryObj = useQuery(INIT_MOVIES_QUERY,queryOpts,{ disableCaching: queryOpts.resultsPerPage > 10 });
     const moviesData = {
         loading: queryObj.loading,
         error: queryObj.error,
