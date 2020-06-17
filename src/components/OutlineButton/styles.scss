@@ -1,0 +1,31 @@
+.outline-button {
+    color: #2EE5C7;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    border: 1px solid #2EE5C7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 8px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        background-color: #2EE5C7;
+        color: #333333;
+    }
+
+    &:active {
+        background-color: rgba(46, 229, 199, 0.5);
+        border-color: rgba(46, 229, 199, 0.5);
+        color: #333333;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
