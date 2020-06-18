@@ -67,3 +67,5 @@ export const useQuery = (query,vars,options) => {
     useDebugValue({...state, cache, options })
     return state
 }
+
+export const useMutation = () => [ x=>x, {loading: false, error: false}];
