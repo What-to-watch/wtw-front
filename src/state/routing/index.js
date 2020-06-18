@@ -1,5 +1,6 @@
 import { createReducer, nullaryActionCreator, unaryActionCreator } from "redux-utility";
-import { assoc, reduce, last, dropLast, append, propOr } from "ramda";
+import { assoc, last, dropLast, append, propOr } from "ramda";
+import { composeReducers as composeChanges } from "../../utils/composeReducers";
 
 export const GO_TO = "GO_TO"
 export const GO_BACK = "GO_BACK";
@@ -9,7 +10,6 @@ const payload = propOr("home","payload");
 const setCurrent = () => (state,action) => assoc("current",payload(action),state);
 const saveCurrent = () => (state) => assoc("previous",[...state.previous, state.current], state)
 const resetNext = () => assoc("next",[])
-const composeChanges = (...muts) => (state,action) => reduce((accState,nextReducer) => nextReducer(accState,action), state)(muts)
 const moveTo = composeChanges(
     saveCurrent(), 
     resetNext(),

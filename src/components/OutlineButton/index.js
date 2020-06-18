@@ -1,16 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
+import getClassName from '../../utils/getClassName'
 import "./styles.scss"
 
-const OutlineButton = ({ label , onClick, children, ...extra }) => {
-  
+const ButtonLoader = () => {
+  return <div className="outline-button__loader">
+    <div className="outline-button__loader__dot"/>
+    <div className="outline-button__loader__dot"/>
+    <div className="outline-button__loader__dot"/>
+  </div>
+}
+
+const OutlineButton = ({ label, loading , onClick, children, ...extra }) => {
+  const [hover, setHover] = useState(false);
+  const [active, setActive] = useState(false);
+
   const handleClick = (e) => {
     e.preventDefault()
-    onClick && onClick(extra)
+    !loading && onClick && onClick(extra)
   }
 
+  const buttonClass = getClassName({
+    base: "outline-button",
+    "&--hover": hover && !loading,
+    "&--active": active && !loading,
+    "&--loading": loading
+  })
+
   return(
-    <button className="outline-button" onClick={handleClick}>
-      {label || children}
+    <button 
+      className={buttonClass}
+      onClick={handleClick}
+      onMouseDown={() => setActive(true)}
+      onMouseUp={() => setActive(false)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      {...extra}
+    >
+      {loading ? <ButtonLoader /> : label || children}
     </button>
   )
 }

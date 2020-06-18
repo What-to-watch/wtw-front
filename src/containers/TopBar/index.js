@@ -53,13 +53,13 @@ const TopBar = () => {
     const [hover, setHover] = useState(false)
 
     const figureClass = getClassName({
-        "topbar__left-content__filter": true,
-        "topbar__left-content__filter--hover": open || hover
+        base: "topbar__left-content__filter",
+        "&--hover": open || hover
     })
 
     const filterIconClass = getClassName({
-       "topbar__left-content__filter__icon": true,
-       "topbar__left-content__filter__icon--active": open || countRef.current !== 0
+       base: "topbar__left-content__filter__icon",
+       "&--active": open || countRef.current !== 0
     })
 
     return (
