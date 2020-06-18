@@ -10,9 +10,18 @@ const preProcess = obj => {
     }
 }
 
-const getClassName = (obj) => Object.entries(preProcess(obj)).map(([className,pred]) => {
+
+const _getClassName = (obj) => Object.entries(preProcess(obj)).map(([className,pred]) => {
     const shouldConcat = typeof(pred) === "function" ? pred() : pred;
     return shouldConcat ? className : undefined
 }).filter(Boolean).join(" ")
+
+const getClassName = (obj) => {
+    const res = new String(_getClassName(obj));
+    res.extend = (sub) => sub.replace(obj?.token || "&", obj?.base || "")
+    res.base = obj?.base;
+    res.token = obj?.token || "&";
+    return res;
+}
 
 export default getClassName

@@ -1,4 +1,5 @@
 .outline-button {
+    position: relative;
     color: #2EE5C7;
     font-family: Roboto;
     font-style: normal;
@@ -33,7 +34,13 @@
         outline: none;
     }
 
+    &__label--loading {
+        visibility: hidden;
+    }
+
     &__loader {
+        position: absolute;
+        margin: auto;
         height: 19px;
         width: (16px * 3) + 12px;
         display: flex;

@@ -26,6 +26,10 @@ const OutlineButton = ({ label, loading , onClick, children, ...extra }) => {
     "&--loading": loading
   })
 
+  const buttonLabelClass = getClassName({
+    "outline-button__label--loading": loading,
+  })
+
   return(
     <button 
       className={buttonClass}
@@ -36,7 +40,8 @@ const OutlineButton = ({ label, loading , onClick, children, ...extra }) => {
       onMouseLeave={() => setHover(false)}
       {...extra}
     >
-      {loading ? <ButtonLoader /> : label || children}
+      <p className={buttonLabelClass}>{label || children}</p>
+      {loading && <ButtonLoader />}
     </button>
   )
 }

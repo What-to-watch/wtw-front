@@ -9,19 +9,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-
-    &:hover {
-        background-color: rgba(19, 20, 20, 1);
-    }
+    justify-content: flex-start;
 
     &__logo {
         margin-left: 16px;
         cursor: pointer;
+        min-width: 93px;
     }
 
-    &__left-content {
-        margin-right: 24px;
+    &__center-content {
+        margin: 0 auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -29,7 +26,7 @@
 
         &__filter {
             cursor: pointer;
-            margin-right: 32px;
+            margin-left: 26px;
             height: 40px;
             width: 40px;
             border-radius: 8px;
@@ -52,6 +49,25 @@
                     stroke: #2EE5C7;
                 }
             }
+        }
+    }
+
+    &__left-content {
+        margin-right: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        cursor: pointer;
+
+        &__figure {
+            min-width: 32px;
+        }
+
+        &__label {
+            color: white;
+            margin-left: 12px;
+            min-width: 50px;
         }
     }
 }

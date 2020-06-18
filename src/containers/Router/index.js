@@ -21,15 +21,16 @@ const Switch = ({ value, children }) => {
 const Router = () => {
     const current = usePathSelector("routing.current");
     const [ movieId, setMovieId ] = useState('');
-    const [ open, setOpen ] = useState(true);
+    const [ loginOpen, setLoginOpen ] = useState(false);
 
     const handleClose = () => {
         setMovieId('');
     }
 
-    const handleLoginClose = () => setOpen(false)
+    const handleLoginClose = () => setLoginOpen(false)
+    const handleLoginOpen = () => setLoginOpen(true)
 
-    return <AppContainer>
+    return <AppContainer onSignInClick={handleLoginOpen}>
         <Switch value={current}>
             <Route path="home">
                 <Home onClickMovie={setMovieId}/>
@@ -43,7 +44,7 @@ const Router = () => {
             </Route>
         </Switch>
         {movieId && <MovieModal id={movieId} open={movieId} onClose={handleClose}/>}
-        {open && <LoginModal open={open} onClose={handleLoginClose}/>}
+        {loginOpen && <LoginModal open={loginOpen} onClose={handleLoginClose}/>}
     </AppContainer>
 }
 

@@ -9,6 +9,7 @@ import { setGenresFilter, setTitleSearch, resetCursors } from '../../state/movie
 import { goTo } from '../../state/routing'
 import debounce from '../../utils/debounce'
 import logo from './wtw_logo.svg'
+import profile from './profile.svg'
 import getClassName from '../../utils/getClassName'
 import { usePathSelector } from 'redux-utility'
 import "./styles.scss"
@@ -18,7 +19,8 @@ const debounceSearch = debounce((value,dispatch) => {
     dispatch(resetCursors())
 },200)
 
-const TopBar = () => {
+const TopBar = (props) => {
+    const { onSignInClick=()=>{} } = props
     const { data, loading } = useQuery(GENRE_LIST)
     const current = usePathSelector("routing.current");
     const dispatch = useDispatch();
@@ -53,13 +55,13 @@ const TopBar = () => {
     const [hover, setHover] = useState(false)
 
     const figureClass = getClassName({
-        base: "topbar__left-content__filter",
+        base: "topbar__center-content__filter",
         "&--hover": open || hover
     })
 
     const filterIconClass = getClassName({
-       base: "topbar__left-content__filter__icon",
-       "&--active": open || countRef.current !== 0
+        base: figureClass.extend("&__icon"),
+        "&--active": open || countRef.current !== 0
     })
 
     return (
@@ -67,7 +69,9 @@ const TopBar = () => {
             <figure className="topbar__logo" onClick={() => dispatch(goTo("home"))}>
                 <img src={logo} alt="logo"/>
             </figure>
-            <section className="topbar__left-content">
+            <section className="topbar__center-content">
+                <SearchField onChange={handleSeachChange} />
+                <FilterModal open={open} onGenreChange={handleGenreChange} />
                 {isCatalog && <figure 
                     aria-label="filter icon"
                     className={figureClass}
@@ -79,8 +83,12 @@ const TopBar = () => {
                         <use xlinkHref={"/icons/defs.svg#filter"}></use>
                     </svg>
                 </figure>}
-                <SearchField onChange={handleSeachChange} />
-                <FilterModal open={open} onGenreChange={handleGenreChange} />
+            </section>
+            <section className="topbar__left-content" onClick={onSignInClick}>
+                <figure className="topbar__left-content__figure">
+                    <img src={profile} alt="sign in" />
+                </figure>
+                <div className="topbar__left-content__label">Sign in</div>
             </section>
         </header>
     )
