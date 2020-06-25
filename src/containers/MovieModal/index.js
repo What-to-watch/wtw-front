@@ -89,7 +89,6 @@ const MovieModal = (props) => {
                         <div>
                             <LineChart data={chartData}/>
                         </div>
-                        
                     </div>
                 </section>
                 <footer>
@@ -110,8 +109,8 @@ const MovieModal = (props) => {
     })
 
     return (
-        <div className={classes}>
-            <div className="movie-modal__content">
+        <div className={classes} onClick={onClose}>
+            <div className="movie-modal__content" onClick={e => e.stopPropagation()}>
                 { loading && renderLoading() }
                 { (!loading && !error) && renderContent() }
                 { (error && !loading) && renderError() }

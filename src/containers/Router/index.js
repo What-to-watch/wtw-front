@@ -7,6 +7,7 @@ import Home from '../Home'
 import Footer from '../Footer'
 import MovieModal from '../MovieModal'
 import TopsContainer from '../TopsContainer'
+import LoginModal from '../LoginModal'
 
 const Route = ({ path, children }) => children
 
@@ -20,12 +21,16 @@ const Switch = ({ value, children }) => {
 const Router = () => {
     const current = usePathSelector("routing.current");
     const [ movieId, setMovieId ] = useState('');
+    const [ loginOpen, setLoginOpen ] = useState(false);
 
     const handleClose = () => {
         setMovieId('');
     }
 
-    return <AppContainer>
+    const handleLoginClose = () => setLoginOpen(false)
+    const handleLoginOpen = () => setLoginOpen(true)
+
+    return <AppContainer onSignInClick={handleLoginOpen}>
         <Switch value={current}>
             <Route path="home">
                 <Home onClickMovie={setMovieId}/>
@@ -39,6 +44,7 @@ const Router = () => {
             </Route>
         </Switch>
         {movieId && <MovieModal id={movieId} open={movieId} onClose={handleClose}/>}
+        {loginOpen && <LoginModal open={loginOpen} onClose={handleLoginClose}/>}
     </AppContainer>
 }
 

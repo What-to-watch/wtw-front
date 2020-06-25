@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { usePathSelector } from 'redux-utility';
-import TopBar from '../TopBar'
 import { useDispatch } from 'react-redux';
+import TopBar from '../TopBar'
 import { goTo } from '../../state/routing';
+import { resetCursors } from '../../state/movies';
 import getClassName from '../../utils/getClassName';
 import "./styles.scss";
-import { resetCursors } from '../../state/movies';
 
 const NavIcon = ({ icon, to }) => {
     const current = usePathSelector("routing.current");
@@ -24,17 +24,15 @@ const NavIcon = ({ icon, to }) => {
     }
 
     const linkClass = getClassName({
-        "navbar__link": true,
-        "navbar__link--hover": hover && !active,
-        "navbar__link--current": active
+        base: "navbar__link",
+        "&--hover": hover && !active,
+        "&--current": active
     })
-    const figureClass = getClassName({
-        "navbar__link__figure": true,
-    })
+    const figureClass = linkClass.extend("&__figure")
     const iconClass = getClassName({
-        "navbar__link__icon": true,
-        "navbar__link__icon--hover": hover && !active,
-        "navbar__link__icon--current": active,
+        base: linkClass.extend("&__icon"),
+        "&--hover": hover && !active,
+        "&--current": active,
     })
 
     return <button
@@ -62,9 +60,9 @@ const NavBar = () => {
     </nav>
 }
 
-const AppContainer = ({ children }) => {
+const AppContainer = ({ children, onSignInClick=()=>{} }) => {
     return <>
-        <TopBar />
+        <TopBar onSignInClick={onSignInClick} />
         <div className="container">
             <NavBar />
             {children}

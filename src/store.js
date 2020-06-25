@@ -21,6 +21,12 @@ const initialState = {
             genres: [],
             pageInfo: {},
         },
+    },
+    user: {
+        authenticated: false,
+        data: {},
+        error: false,
+        loading: false,
     }
 }
 
