@@ -1,17 +1,20 @@
 import React, { useState, useRef } from 'react'
 import { find } from 'ramda'
 import { useDispatch } from 'react-redux'
+import { usePathSelector } from 'redux-utility'
+import { GENRE_LIST } from '../../queries'
 import { useQuery } from '../../queries/hooks'
+import Modal from '../../components/Modal'
 import SearchField from '../../components/SearchField'
 import FilterModal from '../../components/FilterModal'
-import { GENRE_LIST } from '../../queries'
-import { setGenresFilter, setTitleSearch, resetCursors } from '../../state/movies'
+import OutlineButton from '../../components/OutlineButton'
 import { goTo } from '../../state/routing'
+import { logout } from '../../state/user'
+import { setGenresFilter, setTitleSearch, resetCursors } from '../../state/movies'
 import debounce from '../../utils/debounce'
+import getClassName from '../../utils/getClassName'
 import logo from './wtw_logo.svg'
 import profile from './profile.svg'
-import getClassName from '../../utils/getClassName'
-import { usePathSelector } from 'redux-utility'
 import "./styles.scss"
 
 const debounceSearch = debounce((value,dispatch) => {
@@ -22,10 +25,26 @@ const debounceSearch = debounce((value,dispatch) => {
 const TopBar = (props) => {
     const { onSignInClick=()=>{} } = props
     const { data, loading } = useQuery(GENRE_LIST)
+    const [ modalOpen, setModalOpen] = useState(false);
+    const user = usePathSelector("user");
     const current = usePathSelector("routing.current");
     const dispatch = useDispatch();
     const countRef = useRef(0)
     const isCatalog = current === "catalog"
+
+    const handleLogOut = (e) => {
+        e.stopPropagation && e.stopPropagation();
+        setModalOpen(false)
+        dispatch(logout())
+    }
+
+    const handleSignInClick = () => {
+        onSignInClick(user.authenticated ? "authenticated" : "anonymous");
+        if(user.authenticated){
+            setModalOpen(!modalOpen)
+        }
+    }
+
     const handleSeachChange = (e) => {
         if( !isCatalog ){
             dispatch(goTo("catalog"))
@@ -84,12 +103,19 @@ const TopBar = (props) => {
                     </svg>
                 </figure>}
             </section>
-            <section className="topbar__left-content" onClick={onSignInClick}>
+            <section className="topbar__left-content" onClick={handleSignInClick}>
                 <figure className="topbar__left-content__figure">
                     <img src={profile} alt="sign in" />
                 </figure>
-                <div className="topbar__left-content__label">Sign in</div>
+                <div className="topbar__left-content__label">
+                    {user.authenticated ? 
+                        user.data.username : "Sign in"
+                    }
+                </div>
             </section>
+            <Modal open={modalOpen} className="topbar__logout-modal">
+                <OutlineButton onClick={handleLogOut}>Log out</OutlineButton>
+            </Modal>
         </header>
     )
 }

@@ -11,6 +11,10 @@
     align-items: center;
     justify-content: flex-start;
 
+    &__logout-modal {
+        right: 0;
+    }
+
     &__logo {
         margin-left: 16px;
         cursor: pointer;

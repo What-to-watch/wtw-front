@@ -3,11 +3,12 @@ import "./styles.scss"
 import getClassName from '../../utils/getClassName';
 
 const Modal = (props) => {
-    const { children, open, componentProps } = props;
+    const { children, open, componentProps, className="" } = props;
 
     const cl = getClassName({
         "modal": true,
-        "modal--open": open
+        "modal--open": open,
+        [className]: Boolean(className),
     })
 
     return <main className={cl} {...componentProps}>
