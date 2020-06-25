@@ -1,5 +1,6 @@
-import { assocPath, propOr, reduce } from 'ramda'
+import { assocPath, propOr } from 'ramda'
 import { createReducer, unaryActionCreator, nullaryActionCreator } from "redux-utility";
+import { composeReducers as composeQueryOpts } from '../../utils/composeReducers';
 
 export const SET_TITLE_SEARCH = 'SET_TITLE_SEARCH';
 export const SET_GENRES_FILTER = 'SET_GENRES_FILTER';
@@ -13,7 +14,6 @@ export const RESET_CURSORS = 'RESET_CURSORS';
 const setPath = (p,value,obj) => assocPath(p.split("."),value,obj)
 const payloadOr = (or,action) => propOr(or,"payload",action)
 const setQueryOption = (opt,or) => (state,action) => setPath(`query.${opt}`,payloadOr(or,action),state);
-const composeQueryOpts = (...muts) => (state,action) =>  reduce((accState,nextReducer) => nextReducer(accState,action) , state)(muts)
 
 const moviesReducer = createReducer({
     [SET_TITLE_SEARCH]: setQueryOption("title",""),
