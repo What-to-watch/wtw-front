@@ -7,7 +7,6 @@ import "./styles.scss"
 
 const TopRow = ({ id, name, onClickMovie }) => {
   const { data, loading } = useQuery(TOP_TEN,{ id: `${id}` })
-
   if( loading ){
     return <LoadingTopTen name={name}/>
   } else {

@@ -32,9 +32,9 @@ const Top100 = (props) => {
 
 const Home = (props) => {
     const { onClickMovie } = props;
-    const top10 = useQuery(TOP_TEN, { id: "1571958030336" });
+    const top10 = useQuery(TOP_TEN, { id: 1571958030336 });
     const top100 = useQuery(TOP_100,{ n: 100 });
-
+    
     return (
         <div className="home">
             <div className="home__top-ten">

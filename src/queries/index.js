@@ -62,7 +62,7 @@ export const GENRE_LIST = `
 `
 
 export const TOP_TEN = `
-    query Topten($id: String) {
+    query Topten($id: Long) {
         topListing (n: 10, genreId: $id ){
             id,
             title,
@@ -84,5 +84,25 @@ export const TOP_100 = `
                 name
             }
         }   
+    }
+`
+
+export const LOGIN = `
+    mutation attemptLogin {
+        login {
+            token
+        }
+    }
+`
+
+export const REGISTER = `
+    mutation attemptRegister ($username: String, $email: String, $password: String) {
+        register(
+            username: $username, 
+            email: $email, 
+            password: $password
+        ) {
+            token
+        }
     }
 `

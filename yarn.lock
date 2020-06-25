@@ -1338,6 +1338,13 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
+"@juan-utils/ramda-structures@^2.10.2":
+  version "2.10.2"
+  resolved "https://registry.yarnpkg.com/@juan-utils/ramda-structures/-/ramda-structures-2.10.2.tgz#ead21fbda2b4633356b2520d0da36c1a4a0f66f1"
+  integrity sha512-7FE4O7JMJXRZkft1R73+bX+8Zdl/BolKtLIE6J2ZJFEYQmbV/vuRVNPhAgyeC6iv5Wt1QNXUIxqwuMBxapUqdQ==
+  dependencies:
+    ramda "0.27.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -9472,7 +9479,7 @@ raf@^3.4.1:
   dependencies:
     performance-now "^2.1.0"
 
-ramda@^0.27.0:
+ramda@0.27.0, ramda@^0.27.0:
   version "0.27.0"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.27.0.tgz#915dc29865c0800bf3f69b8fd6c279898b59de43"
   integrity sha512-pVzZdDpWwWqEVVLshWUHjNwuVP7SfcmPraYuqocJp1yo2U1R7P+5QAfDhdItkuoGqIBnBYrtPp7rEPqDn9HlZA==
