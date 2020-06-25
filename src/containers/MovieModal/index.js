@@ -1,7 +1,7 @@
-import React from 'react';
-import { useQuery } from '../../queries/hooks';
+import React, { useState } from 'react';
+import { useQuery, useMutation } from '../../queries/hooks'; 
 
-
+import RatingStars from '../../components/RatingStars';
 import LineChart from '../../components/LineChart';
 
 import { MOVIE_INFO } from '../../queries';
@@ -12,6 +12,15 @@ import './styles.scss';
 const MovieModal = (props) => {
     const { id, open, onClose } = props;
     const { data, loading, error } = useQuery(MOVIE_INFO, { id })
+    const [ userRating, setUserRating ] = useState(null);
+    const [ rankingMutation, mutationInfo ] = useMutation('MUTATION');
+
+    const handleRatingMutation = (number) => {
+        if(!mutationInfo.loading) {
+            rankingMutation();
+            setUserRating(number);
+        }
+    }
 
     const handleResetId = () => {
         onClose();
@@ -67,7 +76,14 @@ const MovieModal = (props) => {
                     
                 </header>
                 <section>
-                    <img src={posterUrl ? posterUrl : '/movie-posters/NoPoster.png'} alt={title}/>
+                    <div className="movie-modal__content__info__poster">
+                        <img src={posterUrl ? posterUrl : '/movie-posters/NoPoster.png'} alt={title}/>
+                        <div className="movie-modal__content__info__poster__rating">
+                            <h4>Your Rating</h4>
+                            <RatingStars onChange={ handleRatingMutation } rating={userRating} />
+                        </div>
+                    </div>
+                    
                     <div className="movie-modal__content__info__chart">
                         <h3>Rating by year</h3>
                         <div>

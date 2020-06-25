@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RatingStars render RatingStars render 1`] = `
+<div
+  className="rating-stars"
+>
+  <label>
+    <input
+      name="rating"
+      onClick={[Function]}
+      type="radio"
+      value={1}
+    />
+    <img
+      alt="star"
+      className="rating-stars__star"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      src="icons/fullStar.svg"
+    />
+  </label>
+  <label>
+    <input
+      name="rating"
+      onClick={[Function]}
+      type="radio"
+      value={2}
+    />
+    <img
+      alt="star"
+      className="rating-stars__star"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      src="icons/fullStar.svg"
+    />
+  </label>
+  <label>
+    <input
+      name="rating"
+      onClick={[Function]}
+      type="radio"
+      value={3}
+    />
+    <img
+      alt="star"
+      className="rating-stars__star"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      src="icons/fullStar.svg"
+    />
+  </label>
+  <label>
+    <input
+      name="rating"
+      onClick={[Function]}
+      type="radio"
+      value={4}
+    />
+    <img
+      alt="star"
+      className="rating-stars__star"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      src="icons/fullStar.svg"
+    />
+  </label>
+  <label>
+    <input
+      name="rating"
+      onClick={[Function]}
+      type="radio"
+      value={5}
+    />
+    <img
+      alt="star"
+      className="rating-stars__star"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      src="icons/Star.svg"
+    />
+  </label>
+</div>
+`;

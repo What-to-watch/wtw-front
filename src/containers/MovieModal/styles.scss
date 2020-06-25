@@ -60,6 +60,22 @@
                     height: 200px;
                 }
             }
+            &__poster {
+                &__rating{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column-reverse;
+                    align-items: center;
+                    margin-top: 15px;
+                    & h4 {
+                        color: white;
+                        font-weight: normal;
+                        font-size: 12px;
+                        line-height: 14px;
+                        margin-top: 6px;
+                    }
+                }
+            }
             &__chart {
                 display: flex;
                 flex-direction: column;
@@ -119,7 +135,7 @@
     .movie-modal{
         align-items: center;
         &__content__info, &__content__loading, &__content__error {
-            height: 600px;
+            height: 650px;
         }
     }
 }
