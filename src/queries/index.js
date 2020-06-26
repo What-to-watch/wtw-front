@@ -106,3 +106,16 @@ export const REGISTER = `
         }
     }
 `
+
+export const RECOMMENDED_MOVIES = `
+    query Topten($id: Long) {
+        topListing (n: 5, genreId: $id ){
+            id,
+            title,
+            posterUrl,
+            genres {
+                name
+            }
+        }   
+    }
+`

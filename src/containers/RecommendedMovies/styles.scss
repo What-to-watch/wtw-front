@@ -1,0 +1,34 @@
+.recommended-movies {
+    padding: 51px 0 36px;
+    width: 100%;
+    background-color: rgba(13, 13, 13, 0.9);;
+    margin-top: -25px;
+    min-height: 425px;
+    &__title {
+        color: white;
+        font-weight: 900;
+        font-size: 36px;
+        margin: 0 51px 48px;
+    }
+    &__container {
+        display: flex;
+        justify-content: space-around;
+    }
+    &__movie {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__prediction{
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            margin-top: 16px; 
+            & h6 {
+                color: white;
+                font-size: 12px;
+                line-height: 14px;
+                margin-top: 6px;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.yellow-stars {
+    display: flex;
+    justify-content: center;
+    width: 168px;
+    &.opacity {
+        & img {
+            opacity: 0.5;
+        }
+    }
+    & img {
+        margin: 0 5px;
+    }
+}
