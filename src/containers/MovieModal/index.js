@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { usePathSelector } from 'redux-utility';
 import { useQuery, useMutation } from '../../queries/hooks'; 
 
 import RatingStars from '../../components/RatingStars';
@@ -14,6 +15,7 @@ const MovieModal = (props) => {
     const { data, loading, error } = useQuery(MOVIE_INFO, { id })
     const [ userRating, setUserRating ] = useState(null);
     const [ rankingMutation, mutationInfo ] = useMutation('MUTATION');
+    const authenticated = usePathSelector('user.authenticated');
 
     const handleRatingMutation = (number) => {
         if(!mutationInfo.loading) {
@@ -78,10 +80,12 @@ const MovieModal = (props) => {
                 <section>
                     <div className="movie-modal__content__info__poster">
                         <img src={posterUrl ? posterUrl : '/movie-posters/NoPoster.png'} alt={title}/>
-                        <div className="movie-modal__content__info__poster__rating">
-                            <h4>Your Rating</h4>
-                            <RatingStars onChange={ handleRatingMutation } rating={userRating} />
-                        </div>
+                        { authenticated && (
+                            <div className="movie-modal__content__info__poster__rating">
+                                <h4>Your Rating</h4>
+                                <RatingStars onChange={ handleRatingMutation } rating={userRating} />
+                            </div>
+                        )}
                     </div>
                     
                     <div className="movie-modal__content__info__chart">
