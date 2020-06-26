@@ -13,10 +13,12 @@ const initial = {
 }
 
 const reducer = createReducer({
+    "reset": (state) => ({ ...state, error: false, called: false }),
     "start": (state) => ({ ...state, loading: true, error: false, called: true  }),
     "success": (_,{ payload }) => ({ loading: false, error: false, data: payload, called: true }),
     "error": (_,{ payload }) => ({ loading: false, error: payload, data: undefined, called: true })
 })
+const reset = nullaryActionCreator("reset")
 const start = nullaryActionCreator("start");
 const success = unaryActionCreator("success");
 const error = unaryActionCreator("error");
@@ -84,6 +86,7 @@ export const useMutation = (mutation) => {
         return () => cancelled = true;
     }
     unsafeRun.cancel = () => cancelled = true;
+    unsafeRun.reset = () => dispatch(reset())
     useDebugValue({...state, cancelled })
     return [unsafeRun, state]
 }

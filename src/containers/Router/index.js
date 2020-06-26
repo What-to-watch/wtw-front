@@ -28,7 +28,7 @@ const Router = () => {
     }
 
     const handleLoginClose = () => setLoginOpen(false)
-    const handleLoginOpen = () => setLoginOpen(true)
+    const handleLoginOpen = (auth) => setLoginOpen(auth)
 
     return <AppContainer onSignInClick={handleLoginOpen}>
         <Switch value={current}>
@@ -44,7 +44,7 @@ const Router = () => {
             </Route>
         </Switch>
         {movieId && <MovieModal id={movieId} open={movieId} onClose={handleClose}/>}
-        {loginOpen && <LoginModal open={loginOpen} onClose={handleLoginClose}/>}
+        {loginOpen === "anonymous" && <LoginModal open={loginOpen} onClose={handleLoginClose}/>}
     </AppContainer>
 }
 
