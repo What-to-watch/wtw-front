@@ -48,6 +48,7 @@ export const MOVIE_INFO = `
                 date: year,
                 rating
             },
+            myRating
         }
     }
 `;
@@ -108,14 +109,26 @@ export const REGISTER = `
 `
 
 export const RECOMMENDED_MOVIES = `
-    query Topten($id: Long) {
-        topListing (n: 5, genreId: $id ){
+    query recommended {
+        topRecommendedListing (n: 5) {
             id,
             title,
             posterUrl,
+            myRating,
+            expectedRating,
             genres {
                 name
             }
         }   
+    }
+`
+
+export const RATE_MOVIE = `
+    mutation rate($id: Int, $stars: Float) {
+        rate(movieId: $id, rating: $stars) {
+            movieId,
+            rating,
+            timestamp,
+        }
     }
 `

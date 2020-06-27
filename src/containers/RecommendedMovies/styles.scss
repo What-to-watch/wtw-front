@@ -13,6 +13,12 @@
     &__container {
         display: flex;
         justify-content: space-around;
+        flex: 1;
+        &__no-rec {
+            color: white;
+            margin: auto;
+            margin-top: 60px;
+        }
     }
     &__movie {
         display: flex;

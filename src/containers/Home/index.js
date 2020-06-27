@@ -36,11 +36,16 @@ const Home = (props) => {
     const { onClickMovie } = props;
     const top10 = useQuery(TOP_TEN, { id: 1571958030336 });
     const top100 = useQuery(TOP_100,{ n: 100 });
-    const authenticated = usePathSelector('user.authenticated');
+    const { authenticated, data } = usePathSelector('user');
     
     return (
         <div className="home">
-            {authenticated && (<RecommendedMovies onClickMovie={onClickMovie}/>)}
+            {authenticated && (
+                <RecommendedMovies 
+                    userData={data}
+                    onClickMovie={onClickMovie}
+                />
+            )}
             <div className="home__top-ten">
                 <h2 className="home__subtitle">Top</h2>
                 <div>

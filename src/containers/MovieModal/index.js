@@ -1,28 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { usePathSelector } from 'redux-utility';
 import { useQuery, useMutation } from '../../queries/hooks'; 
 
 import RatingStars from '../../components/RatingStars';
 import LineChart from '../../components/LineChart';
+import { createAuthClientOptions } from '../../utils/createAuthClientOptions';
 
-import { MOVIE_INFO } from '../../queries';
+import { MOVIE_INFO, RATE_MOVIE } from '../../queries';
 import getClassName from '../../utils/getClassName';
 
 import './styles.scss';
 
 const MovieModal = (props) => {
     const { id, open, onClose } = props;
-    const { data, loading, error } = useQuery(MOVIE_INFO, { id })
     const [ userRating, setUserRating ] = useState(null);
-    const [ rankingMutation, mutationInfo ] = useMutation('MUTATION');
-    const authenticated = usePathSelector('user.authenticated');
-
+    const [ rankingMutation, mutationInfo ] = useMutation(RATE_MOVIE);
+    const { authenticated , data: userData } = usePathSelector('user');
+    const clientOptions = authenticated ? createAuthClientOptions(userData.token): {}
+    const { data, loading, error, refresh } = useQuery(MOVIE_INFO, { id } , { clientOptions })
+    
     const handleRatingMutation = (number) => {
-        if(!mutationInfo.loading) {
-            rankingMutation();
+        if(!mutationInfo.loading && !userRating) {
+            rankingMutation({ id, stars: number },createAuthClientOptions(userData.token));
             setUserRating(number);
+            refresh()
         }
     }
+
+    useEffect(() => {
+        if(data?.movie.myRating){
+            setUserRating(data.movie.myRating)
+        }
+    },[data])
 
     const handleResetId = () => {
         onClose();
