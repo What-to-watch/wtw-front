@@ -47,7 +47,7 @@ const RecommendedMovies = (props) => {
                             />
                             <div className="recommended-movies__movie__prediction">
                                 <h6>Predicted rating</h6>
-                                <YellowStars n={3} />
+                                <YellowStars n={Math.floor(movie.expectedRating)} />
                             </div>
                         </div>
                     )
