@@ -3,12 +3,18 @@ import MovieCard from '../../components/MovieCard';
 import YellowStars from '../../components/YellowStars';
 import { useQuery } from '../../queries/hooks';
 import { RECOMMENDED_MOVIES } from '../../queries'
-
+import { createAuthClientOptions } from '../../utils/createAuthClientOptions';
 import './styles.scss';
 
 const RecommendedMovies = (props) => {
-    const { data, loading, error } = useQuery(RECOMMENDED_MOVIES,{id:85899345920});
-    const { onClickMovie } = props;
+    const { onClickMovie, userData } = props;
+    const { data, loading, error } = useQuery(RECOMMENDED_MOVIES,
+        {},
+        {
+            disableCaching: true,
+            clientOptions: createAuthClientOptions(userData.token)
+        }
+    );
 
     const renderLoading = () => {
         return (
@@ -19,7 +25,14 @@ const RecommendedMovies = (props) => {
     }
 
     const renderContent = () => {
-        const { topListing: movies } = data
+        const { topRecommendedListing: movies } = data
+        if( !movies ){
+            return <div className="recommended-movies__container">
+                <h1 className="recommended-movies__container__no-rec">
+                    Please rate more movies to get recommendations :)
+                </h1>
+            </div>
+        }
         return (
             <div className="recommended-movies__container">
                 { movies.map(movie => {

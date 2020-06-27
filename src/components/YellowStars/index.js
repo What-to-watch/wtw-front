@@ -11,7 +11,7 @@ const YellowStars = (props) => {
     })
     return (
         <div className={classes}>
-            {array.map((star, i)=>{ return <img src='icons/yellow-star.svg' alt="star"/>})}
+            {array.map((star)=>{ return <img key={`star-${star}`} src='icons/yellow-star.svg' alt="star"/>})}
         </div>
     )
 }

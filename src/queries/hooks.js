@@ -71,7 +71,7 @@ export const useQuery = (query,vars,options) => {
         return () => cancelled = true;
     },[ query, opts, key, queryOptions ])
     useDebugValue({...state, cache, options })
-    return state
+    return {...state, refresh: () => cache.delete(key)}
 }
 
 export const useMutation = (mutation) => {
