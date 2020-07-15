@@ -21,6 +21,7 @@ const Switch = ({ value, children }) => {
 
 const Router = () => {
     const current = usePathSelector("routing.current");
+    const auth = usePathSelector("user.authenticated");
     const [ movieId, setMovieId ] = useState('');
     const [ loginOpen, setLoginOpen ] = useState(false);
 
@@ -46,6 +47,9 @@ const Router = () => {
                 <MovieGrid onClickMovie={setMovieId}/>
                 <Footer />
             </Route>
+            {auth && <Route path="wishlists">
+                <Wishlists />
+            </Route>}
         </Switch>
         {movieId && <MovieModal id={movieId} open={movieId} onClose={handleClose}/>}
         {loginOpen === "anonymous" && <LoginModal open={loginOpen} onClose={handleLoginClose}/>}
