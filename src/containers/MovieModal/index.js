@@ -5,10 +5,10 @@ import { useQuery, useMutation } from '../../queries/hooks';
 import RatingStars from '../../components/RatingStars';
 import LineChart from '../../components/LineChart';
 import { createAuthClientOptions } from '../../utils/createAuthClientOptions';
+import OutlineButton from '../../components/OutlineButton';
 
 import { MOVIE_INFO, RATE_MOVIE } from '../../queries';
 import getClassName from '../../utils/getClassName';
-
 import './styles.scss';
 
 const MovieModal = (props) => {
@@ -84,16 +84,20 @@ const MovieModal = (props) => {
                         <h2>{title}</h2>
                         <p>Genres: <span>{genresString}</span></p>
                     </div>
-                    
                 </header>
                 <section>
                     <div className="movie-modal__content__info__poster">
                         <img src={posterUrl ? posterUrl : '/movie-posters/NoPoster.png'} alt={title}/>
                         { authenticated && (
-                            <div className="movie-modal__content__info__poster__rating">
-                                <h4>Your Rating</h4>
-                                <RatingStars onChange={ handleRatingMutation } rating={userRating} />
-                            </div>
+                            <>
+                                <div className="movie-modal__content__info__poster__rating">
+                                    <h4>Your Rating</h4>
+                                    <RatingStars onChange={ handleRatingMutation } rating={userRating} />
+                                </div>
+                                <div className="movie-modal__content__info__poster__rating">
+                                    <OutlineButton>+ Add to watchlist</OutlineButton>
+                                </div>
+                            </>
                         )}
                     </div>
                     

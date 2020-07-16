@@ -9,6 +9,8 @@ import MovieModal from '../MovieModal'
 import TopsContainer from '../TopsContainer'
 import LoginModal from '../LoginModal'
 import WatchList from '../WatchList'
+import { useDispatch } from 'react-redux'
+import { goTo, goBack } from '../../state/routing'
 
 const Route = ({ path, children }) => children
 
@@ -22,11 +24,18 @@ const Switch = ({ value, children }) => {
 const Router = () => {
     const current = usePathSelector("routing.current");
     const auth = usePathSelector("user.authenticated");
+    const dispatch = useDispatch()
     const [ movieId, setMovieId ] = useState('');
     const [ loginOpen, setLoginOpen ] = useState(false);
 
     const handleClose = () => {
         setMovieId('');
+        dispatch(goBack())
+    }
+
+    const handleMovieClick = (id) => {
+        setMovieId(id)
+        dispatch(goTo("movie-details"));
     }
 
     const handleLoginClose = () => setLoginOpen(false)
@@ -35,23 +44,25 @@ const Router = () => {
     return <AppContainer onSignInClick={handleLoginOpen}>
         <Switch value={current}>
             <Route path="home">
-                <Home onClickMovie={setMovieId}/>
+                <Home onClickMovie={handleMovieClick}/>
             </Route>
             <Route path="top">
-                <TopsContainer onClickMovie={setMovieId}/>
+                <TopsContainer onClickMovie={handleMovieClick}/>
             </Route>
             <Route path="lists">
                 <WatchList onClickMovie={setMovieId}/>
             </Route>
             <Route path="catalog">
-                <MovieGrid onClickMovie={setMovieId}/>
+                <MovieGrid onClickMovie={handleMovieClick}/>
                 <Footer />
+            </Route>
+            <Route path="movie-details">
+            {movieId && <MovieModal id={movieId} open={movieId} onClose={handleClose}/>}
             </Route>
             {auth && <Route path="wishlists">
                 <Wishlists />
             </Route>}
         </Switch>
-        {movieId && <MovieModal id={movieId} open={movieId} onClose={handleClose}/>}
         {loginOpen === "anonymous" && <LoginModal open={loginOpen} onClose={handleLoginClose}/>}
     </AppContainer>
 }

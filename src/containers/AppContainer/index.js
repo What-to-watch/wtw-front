@@ -58,7 +58,6 @@ const NavBar = ({ auth }) => {
         <NavIcon icon="Top" to="top" />
         <NavIcon icon="Lists" to="lists" />
         <NavIcon icon="Catalog" to="catalog" />
-        {auth && <NavIcon icon="Wishlists" to="wishlists" />}
     </nav>
 }
 

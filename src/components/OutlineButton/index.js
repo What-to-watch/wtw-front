@@ -41,7 +41,7 @@ const OutlineButton = ({ label, loading , onClick, children, white, ...extra }) 
       onMouseLeave={() => setHover(false)}
       {...extra}
     >
-      <p className={buttonLabelClass}>{label || children}</p>
+      <div className={buttonLabelClass}>{label || children}</div>
       {loading && <ButtonLoader />}
     </button>
   )
