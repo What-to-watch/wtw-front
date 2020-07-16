@@ -82,14 +82,10 @@ export const useQuery = (query,vars,options) => {
             .request(query, opts)
             .then(payload => {
                 if(!refreshCancel){
-                    if(!queryOptions?.disableCaching){ 
-                        cache.set(key,payload)
-                    }
                     dispatch(success(payload))
                 }
             })
             .catch(payload => !refreshCancel && dispatch(error(payload)));
-        return () => { refreshCancel = true }
     }
     refresh.cancel = () => refreshCancel = true;
 
@@ -112,5 +108,3 @@ export const useMutation = (mutation) => {
     useDebugValue({...state, cancelled })
     return [unsafeRun, state]
 }
-
-export const useLazyQuery = useMutation

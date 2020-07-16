@@ -41,8 +41,8 @@ const MyList = ({onClick, userData, refresh}) => {
     const myListContent = () => {
         return myLists.data.myWatchlists.length > 0 ? (
             <div className="watch-list__section__grid">
-                {myLists.data.myWatchlists.map((list => { return (
-                    <WatchListCard element data={list} onClick={()=>onClick(list)}/>
+                {myLists.data.myWatchlists.map(((list,key) => { return (
+                    <WatchListCard element data={list} key={key} onClick={()=>onClick(list)}/>
                 )}))}
             </div>
         ) : (
@@ -67,7 +67,7 @@ const MyList = ({onClick, userData, refresh}) => {
 const WatchList = ({onClickMovie}) => {
     const [ selectedWatchList, setSelectedWatchList ] = useState(null);
     const { authenticated, data } = usePathSelector('user');
-    const publicLists = useQuery(PUBLIC_WATCH_LISTS);
+    const publicLists = useQuery(PUBLIC_WATCH_LISTS,{},{ disableCaching: true });
 
     const onSelectWatchList = (value) => {
         setSelectedWatchList(value);
@@ -82,8 +82,8 @@ const WatchList = ({onClickMovie}) => {
     const publicListContent = () => {
         return publicLists.data.publicWatchlists.length > 0 ? (
             <div className="watch-list__section__grid">
-                {publicLists.data.publicWatchlists.map((list => { return (
-                    <WatchListCard element data={list} onClick={()=>onSelectWatchList(list)}/>
+                {publicLists.data.publicWatchlists.map(((list,key) => { return (
+                    <WatchListCard element key={key} data={list} onClick={()=>onSelectWatchList(list)}/>
                 )}))}
             </div>
         ) : (

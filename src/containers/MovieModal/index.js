@@ -7,17 +7,68 @@ import LineChart from '../../components/LineChart';
 import { createAuthClientOptions } from '../../utils/createAuthClientOptions';
 import OutlineButton from '../../components/OutlineButton';
 
-import { MOVIE_INFO, RATE_MOVIE, MY_WATCH_LIST_NAMES } from '../../queries';
+import { MOVIE_INFO, RATE_MOVIE, MY_WATCH_LIST_NAMES, CREATE_WATCH_LIST, ADD_TO_WATCHLIST } from '../../queries';
 import getClassName from '../../utils/getClassName';
 import './styles.scss';
+import Input from '../../components/Input';
 
+const AddNewList = (props) => {
+    const { onSubmit } = props;
+    const [open, setOpen] = useState(false)
+    const [name, setName] = useState("")
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSubmit(name.trim())
+        setName("")
+    }
+
+    return <div className="movie-modal__list-modal__add-new">
+        {open ? 
+            <form onSubmit={handleSubmit}>
+                <Input fluid placeholder="List Name" onChange={setName} value={name}/>
+            </form> :
+            <OutlineButton fluid onClick={() => setOpen(true)}>+ Add new</OutlineButton>
+        }
+    </div>
+}
+
+const ListModalItem = ({ id, name, isInWatchlist, onClick }) => {
+    const [clicked, setClicked] = useState(false);
+    const itemClass = getClassName({
+        base: "movie-modal__list-modal__item",
+        "&--active": isInWatchlist || clicked
+    })
+
+    const imgClass = itemClass.extend("&__check");
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        setClicked(true);
+        if( !clicked && !isInWatchlist){
+            onClick(id)
+        }
+    }
+
+    return <div className={itemClass} onClick={handleClick}>
+        <div>{name}</div>
+        {(isInWatchlist || clicked) && <img className={imgClass} src="/icons/check.svg" alt="checked"/>}
+    </div>
+}
 
 const ListModal = (props) => {
-    const { data } = props
+    const { data, onSubmit, onSelect, movieId } = props
+
+    const handleItemClick = (id) => {
+        onSelect(id)
+    }
+
     return <div className="movie-modal__list-modal">
-        {data.map( ({ id, name}) => {
-            return <div key={id} className="movie-modal__list-modal__item">{name}</div>
+        {data.map( ({ id, name, movies}) => {
+            const isInWatchlist = movies.some( m => m.id === movieId )
+            return <ListModalItem key={id} id={id} name={name} isInWatchlist={isInWatchlist} onClick={handleItemClick}/>
         })}
+        <AddNewList onSubmit={onSubmit}/>
     </div>
 }
 
@@ -28,8 +79,48 @@ const MovieModal = (props) => {
     const { authenticated , data: userData } = usePathSelector('user');
     const clientOptions = authenticated ? createAuthClientOptions(userData.token): {}
     const { data, loading, error, forget } = useQuery(MOVIE_INFO, { id } , { clientOptions })
-    const lists = useQuery(MY_WATCH_LIST_NAMES,{},{ clientOptions, preventQuery: !authenticated });
+    const [createWatchList] = useMutation(CREATE_WATCH_LIST);
+    const [addToWatchList] = useMutation(ADD_TO_WATCHLIST)
+    const lists = useQuery(MY_WATCH_LIST_NAMES,{},{ 
+        clientOptions, 
+        preventQuery: !authenticated,
+        disableCaching: true,
+    });
     const [ openLists, setOpenLists] = useState(false);
+
+    const handleCreateWatchlist = (name) => {
+        const iconArray = [
+            'top',
+            'boat',
+            'worm',
+            'knife',
+            'arrow',
+            'soap',
+            'stairs',
+            'thunder'
+        ];
+        const idx = Math.floor((Math.random() * 100) % iconArray.length)
+        const icon = iconArray[idx];
+        console.log("ICON:",icon,idx)
+        createWatchList({
+            name,
+            icon,
+            isPublic: false,
+        },clientOptions)
+        setTimeout(() => {
+            lists.refresh();
+        },500)
+    }
+
+    const handleAddToList = (listId) => {
+        addToWatchList({
+            watchlistId: listId,
+            movieId: id
+        },clientOptions)
+        setTimeout(() => {
+            lists.refresh();
+        },500)
+    }
     
     const handleRatingMutation = (number) => {
         if(!mutationInfo.loading) {
@@ -88,6 +179,7 @@ const MovieModal = (props) => {
             budget,
             averageRating,
             yearlyAverageRating,
+            overview
         } = data.movie;
         const rating = averageRating.rating.toFixed(1);
         const genresString = genres.map(x=>x.name).join('/');
@@ -117,7 +209,12 @@ const MovieModal = (props) => {
                                 <h5>Your Rating</h5>
                             </div>
                             <div className="movie-modal__content__body__poster__add-to-watchlist">
-                                { openLists && <ListModal data={lists.myWatchLists}/>}
+                                { openLists && <ListModal 
+                                            data={lists.data.myWatchlists}
+                                            movieId={id}
+                                            onSubmit={handleCreateWatchlist}
+                                            onSelect={handleAddToList}
+                                        />}
                                 <OutlineButton loading={lists.loading} onClick={handleOpenWatchlists}>
                                     + Add to watchlist
                                 </OutlineButton>
@@ -128,11 +225,7 @@ const MovieModal = (props) => {
                     <div className="movie-modal__content__body__data">
                         <div className="movie-modal__content__body__data__overview">
                             <h3 className="movie-modal__content__body__data__overview__header">Overview</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta massa a lectus congue, 
-                                id malesuada ipsum porttitor. Praesent auctor erat vel dictum consequat. Integer orci diam, 
-                                tincidunt at ex nec, blandit bibendum est. Donec egestas condimentum tempor.
-                            </p>
+                            <p>{overview || "No overview available :("}</p>
                             <article className="movie-modal__content__body__data__overview__details">
                                 <p className="movie-modal__content__body__data__overview__details__item">Budget: <strong>{ budget ? `$${budget/1000000} Million` : 'N/A' }</strong></p>
                                 <p className="movie-modal__content__body__data__overview__details__item">Avg. Rating: <strong>{rating}/5</strong></p>

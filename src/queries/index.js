@@ -48,7 +48,8 @@ export const MOVIE_INFO = `
                 date: year,
                 rating
             },
-            myRating
+            myRating,
+            overview
         }
     }
 `;
@@ -188,7 +189,16 @@ export const MY_WATCH_LIST_NAMES = `
     query myWatchlists {
         myWatchlists {
             id,
-            name
+            name,
+            movies {
+                id
+            }
         }   
+    }
+`
+
+export const ADD_TO_WATCHLIST = `
+    mutation addMovieToWatchlist($watchlistId: Int, $movieId: Int) {
+        addMovieToWatchlist(watchlistId: $watchlistId, movieId: $movieId)
     }
 `

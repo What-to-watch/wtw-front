@@ -85,8 +85,8 @@ const WatchListModal = ({open, handleClose=()=>{}, userData, refresh=()=>{}}) =>
                     <div className="watchlist-modal__content__form">
                         <Input name='name' placeholder="Watch list Name" onChange={handleChangeTitle}/>
                         <div className="watchlist-modal__content__form__isPublic">
-                            <button onClick={handleChangePublic(!isPublic)} className={ !isPublic && 'selected'}>Private</button>
-                            <button onClick={handleChangePublic(!isPublic)} className={ isPublic && 'selected'}>Public</button>
+                            <button onClick={handleChangePublic(!isPublic)} className={ !isPublic ? 'selected' : ""}>Private</button>
+                            <button onClick={handleChangePublic(!isPublic)} className={ isPublic  ? 'selected' : ""}>Public</button>
                         </div>
                         <div className="watchlist-modal__content__form__picture">
                             <p>Select a Picture</p>
@@ -96,7 +96,7 @@ const WatchListModal = ({open, handleClose=()=>{}, userData, refresh=()=>{}}) =>
                                         <button 
                                             key={iconName}
                                             onClick={handleChangeIcon(iconName)}
-                                            className={ iconName === icon && 'selected' }
+                                            className={ iconName === icon ? 'selected' : ""}
                                         >
                                             <img src={`icons/watchList/${iconName}.svg`} alt={iconName} />
                                             { iconName === icon && (
