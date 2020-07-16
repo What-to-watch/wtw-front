@@ -183,3 +183,12 @@ export const CREATE_WATCH_LIST = `
         }
     }
 `
+
+export const MY_WATCH_LIST_NAMES = `
+    query myWatchlists {
+        myWatchlists {
+            id,
+            name
+        }   
+    }
+`

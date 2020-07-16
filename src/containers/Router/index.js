@@ -23,7 +23,6 @@ const Switch = ({ value, children }) => {
 
 const Router = () => {
     const current = usePathSelector("routing.current");
-    const auth = usePathSelector("user.authenticated");
     const dispatch = useDispatch()
     const [ movieId, setMovieId ] = useState('');
     const [ loginOpen, setLoginOpen ] = useState(false);
@@ -57,11 +56,8 @@ const Router = () => {
                 <Footer />
             </Route>
             <Route path="movie-details">
-            {movieId && <MovieModal id={movieId} open={movieId} onClose={handleClose}/>}
+                <MovieModal id={movieId} onClose={handleClose}/>
             </Route>
-            {auth && <Route path="wishlists">
-                <Wishlists />
-            </Route>}
         </Switch>
         {loginOpen === "anonymous" && <LoginModal open={loginOpen} onClose={handleLoginClose}/>}
     </AppContainer>
