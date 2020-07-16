@@ -56,6 +56,7 @@ const NavBar = () => {
     return <nav className="navbar">
         <NavIcon icon="Home" to="home" />
         <NavIcon icon="Top" to="top" />
+        <NavIcon icon="Lists" to="lists" />
         <NavIcon icon="Catalog" to="catalog" />
     </nav>
 }

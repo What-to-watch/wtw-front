@@ -10,7 +10,7 @@ const ButtonLoader = () => {
   </div>
 }
 
-const OutlineButton = ({ label, loading , onClick, children, ...extra }) => {
+const OutlineButton = ({ label, loading , onClick, children, white, ...extra }) => {
   const [hover, setHover] = useState(false);
   const [active, setActive] = useState(false);
 
@@ -23,7 +23,8 @@ const OutlineButton = ({ label, loading , onClick, children, ...extra }) => {
     base: "outline-button",
     "&--hover": hover && !loading,
     "&--active": active && !loading,
-    "&--loading": loading
+    "&--loading": loading,
+    "&--white": white,
   })
 
   const buttonLabelClass = getClassName({

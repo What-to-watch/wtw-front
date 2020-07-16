@@ -132,3 +132,54 @@ export const RATE_MOVIE = `
         }
     }
 `
+
+export const WATCH_LIST = `
+    query watchlist($id: Int) {
+        watchlist(id: $id) {
+            id,
+            name,
+            icon,
+            isPublic,
+            movies {
+                id,
+                title,
+                posterUrl,
+                genres {
+                    name
+                }
+            }
+        }   
+    }
+`
+
+export const PUBLIC_WATCH_LISTS = `
+    query publicWatchlists {
+        publicWatchlists {
+            id,
+            name,
+            icon,
+            isPublic,
+        }   
+    }
+`
+
+export const MY_WATCH_LISTS = `
+    query myWatchlists {
+        myWatchlists {
+            id,
+            name,
+            icon,
+            isPublic,
+        }   
+    }
+`
+
+export const CREATE_WATCH_LIST = `
+    mutation createWatchlist($name: String, $icon: String, $isPublic: Boolean) {
+        createWatchlist(name: $name, icon: $icon, isPublic: $isPublic) {
+            id,
+            name,
+            icon,
+        }
+    }
+`

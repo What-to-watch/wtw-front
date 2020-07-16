@@ -8,6 +8,7 @@ import Footer from '../Footer'
 import MovieModal from '../MovieModal'
 import TopsContainer from '../TopsContainer'
 import LoginModal from '../LoginModal'
+import WatchList from '../WatchList'
 
 const Route = ({ path, children }) => children
 
@@ -37,6 +38,9 @@ const Router = () => {
             </Route>
             <Route path="top">
                 <TopsContainer onClickMovie={setMovieId}/>
+            </Route>
+            <Route path="lists">
+                <WatchList onClickMovie={setMovieId}/>
             </Route>
             <Route path="catalog">
                 <MovieGrid onClickMovie={setMovieId}/>

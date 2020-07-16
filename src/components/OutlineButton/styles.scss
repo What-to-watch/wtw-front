@@ -39,6 +39,20 @@
         visibility: hidden;
     }
 
+    &--white {
+        border: 1px solid white;
+        color: white;
+        &.outline-button--hover {
+            background-color: white;
+            color: #333333;
+        } 
+        &.outline-button--active {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: #333333;
+        } 
+    }
+
     &__loader {
         position: absolute;
         margin: auto;
