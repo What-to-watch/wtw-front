@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '../../queries/hooks';
 import MovieCard from '../../components/MovieCard';
 import WatchListCard from '../../components/WatchListCard';
@@ -36,6 +36,7 @@ const WatchMoviesList = (props) => {
     const [marks, setMarks] = useState([])
     const [editing, setEditing] = useState(false);
     const [deleting, setDeleting] = useState(false);
+    const [ movieQuantity, setMovieQuantity ] = useState('-');
     const removedMovies = []
 
     const renderLoading = () => (
@@ -49,6 +50,12 @@ const WatchMoviesList = (props) => {
     }
 
     const isMovieMarked = (movie) => marks.includes(movie.id)
+
+    useEffect(() => {
+        if(data) {
+            setMovieQuantity(data.watchlist.movies.filter(m => !marks.includes(m.id)).length);
+        }
+    }, [data, marks]);
 
     const renderList = () => { 
         return data.watchlist.movies.length > 0 && !error ? (
@@ -115,7 +122,7 @@ const WatchMoviesList = (props) => {
             <header>
                 <WatchListCard data={listData}/>
                 <div>
-                    <p>{loading ? '-' : data.watchlist.movies.length} Movies / {isPublic ? 'Public' : 'Private'}</p>
+                    <p>{movieQuantity} Movies / {isPublic ? 'Public' : 'Private'}</p>
                 </div>
                 <button className="watch-movie-list__back" onClick={handleGoback}>
                     <img src="icons/left-arrow.svg" alt="back"/>
