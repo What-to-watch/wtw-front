@@ -49,7 +49,7 @@ const Router = () => {
                 <TopsContainer onClickMovie={handleMovieClick}/>
             </Route>
             <Route path="lists">
-                <WatchList onClickMovie={setMovieId}/>
+                <WatchList onClickMovie={handleMovieClick}/>
             </Route>
             <Route path="catalog">
                 <MovieGrid onClickMovie={handleMovieClick}/>

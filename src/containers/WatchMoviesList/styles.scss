@@ -24,6 +24,10 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        & .movie-grid {
+            padding: 0 0 90px;
+            min-height: 0;
+        }
     }
 
     &__no-results {

@@ -4,7 +4,7 @@ $division-color: #828080;
 
 .movie-modal {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: $background;
     padding: 0px 10%;
     padding-top: 68px;
