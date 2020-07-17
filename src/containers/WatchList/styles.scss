@@ -1,0 +1,49 @@
+.watch-list {
+    background-color:#2E2C2C;
+    padding: 85px 24px;
+    min-height: 100vh;
+    width: 100%;
+    &__section {
+        & header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 100%;
+            border-bottom: 1px solid #828080;
+            & h2 {
+                color: white;
+                font-weight: 900;
+                font-size: 36px;
+                margin: 15px 25px 16px;
+            }
+            & button {
+                margin: 16px 15px
+            }
+        }
+        &__error {
+            min-height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        &__loading {
+            min-height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__grid {
+            display: grid;
+            grid-auto-rows: minmax(240px, auto);
+            grid-template-columns: repeat(auto-fill, 206px);
+            justify-items: center;
+            justify-content: center;
+            padding: 78px 25px;
+            width: 100%;
+            align-items: flex-start;
+        }
+    }
+}

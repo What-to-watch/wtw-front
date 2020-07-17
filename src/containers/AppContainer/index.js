@@ -7,7 +7,7 @@ import { resetCursors } from '../../state/movies';
 import getClassName from '../../utils/getClassName';
 import "./styles.scss";
 
-const NavIcon = ({ icon, to }) => {
+const NavIcon = ({ icon, to, label }) => {
     const current = usePathSelector("routing.current");
     const dispatch = useDispatch();
     const [hover , setHover] = useState(false);
@@ -48,23 +48,25 @@ const NavIcon = ({ icon, to }) => {
                 <use xlinkHref={`/icons/defs.svg#${icon.toLowerCase()}`}></use>
             </svg>
         </figure>
-        {icon}
+        {label || icon}
     </button>
 }
 
-const NavBar = () => {
+const NavBar = ({ auth }) => {
     return <nav className="navbar">
         <NavIcon icon="Home" to="home" />
         <NavIcon icon="Top" to="top" />
+        <NavIcon icon="Lists" to="lists" />
         <NavIcon icon="Catalog" to="catalog" />
     </nav>
 }
 
 const AppContainer = ({ children, onSignInClick=()=>{} }) => {
+    const auth = usePathSelector("user.authenticated");
     return <>
         <TopBar onSignInClick={onSignInClick} />
         <div className="container">
-            <NavBar />
+            <NavBar auth={auth}/>
             {children}
         </div>
     </>

@@ -1,0 +1,125 @@
+.watchlist-modal {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+
+    &--open {
+        display: flex;
+    }
+
+    &__content {
+        width: 470px;
+        height: 620px;
+        background: #2E2C2C;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.24);
+        border-radius: 16px;
+        position: relative;
+        padding: 40px 80px;
+
+        &__header {
+            align-self: flex-start;
+            margin-bottom: 48px;
+            & h1 {
+                color: white;
+                font-size: 36px;
+            }
+        }
+
+        &__close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            &__isPublic {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin-top: 48px;
+                & button {
+                    height: 32px;
+                    border: 1px solid white;
+                    width: 82px;
+                    color: white;
+                    background-color: transparent;
+                    font-weight: 900;
+                    &:first-child {
+                        border-radius: 8px 0 0 8px;
+                        transform: translateX(4px);
+                    }
+                    &:last-child {
+                        border-radius: 0 8px 8px 0;
+                        transform: translateX(-4px);
+                    }
+                    &.selected {
+                        border-radius: 8px 8px 8px 8px;
+                        background-color: white;
+                        color: #2E2C2C;
+                    }
+                }
+            }
+            &__picture {
+                width: 100%;
+                margin: 48px 0;
+                & p {
+                    color: #A0A0A0;
+                    margin-bottom: 24px;
+                }
+                &--buttons {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: stretch;
+                    justify-content: space-between;
+                    height: 144px;
+                    & button {
+                        height: 64px;
+                        width: 64px;
+                        border-radius: 32px;
+                        margin-bottom: 16px;
+                        padding: 0;
+                        position: relative;
+                        overflow: hidden;
+                        & img {
+                            height: 64px;
+                            width: 64px;
+                        }
+                        & .selected {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 64px;
+                            width: 64px;
+                            background-color: rgba(255, 255, 255, 0.2);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            & img {
+                                width: 24px;
+                                height: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+            &__buttons {
+                display: flex;
+                width: 100%;
+                justify-content: space-around;
+            }
+        }
+    }
+}

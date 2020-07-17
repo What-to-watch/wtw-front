@@ -1,0 +1,43 @@
+.watch-movie-list {
+    min-height: 100vh;
+    position: relative;
+    background-color: #2E2C2C;
+    width: 100%;
+    padding: 75px 24px;
+    & header {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin: 32px 0px;
+        padding: 0 0 16px;
+        border-bottom: 1px solid #828080;
+        flex-direction: column;
+        & p {
+            text-align: center;
+            font-weight: 900;
+            font-size: 16px;
+            color: white;
+        }
+    }
+
+    & section {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__no-results {
+        color: white;
+        text-align: center;
+    }
+
+    &__back {
+        position: absolute;
+        top: 90px;
+        left: 50px;
+        cursor: pointer;
+        & img {
+            height: 50px;
+        }
+    }
+}

@@ -51,27 +51,45 @@ export const useQuery = (query,vars,options) => {
     const key = keyGen(query,opts,options);
     const [ state, dispatch ] = useReducer(reducer, cache.has(key) ? fromCache(key) : initial);
     useEffect(() => {
-        let cancelled = false;
-        if( !cache.has(key) ){
-            dispatch(start())
-            new GraphQLClient(url,queryOptions?.clientOptions)
-                .request(query, opts)
-                .then(payload => {
-                    if(!cancelled){
-                        if(!queryOptions?.disableCaching){ 
-                            cache.set(key,payload)
+        if( !queryOptions?.preventQuery ){
+            let cancelled = false;
+            if( !cache.has(key) ){
+                dispatch(start())
+                new GraphQLClient(url,queryOptions?.clientOptions)
+                    .request(query, opts)
+                    .then(payload => {
+                        if(!cancelled){
+                            if(!queryOptions?.disableCaching){ 
+                                cache.set(key,payload)
+                            }
+                            dispatch(success(payload))
                         }
-                        dispatch(success(payload))
-                    }
-                })
-                .catch(payload => !cancelled && dispatch(error(payload)));
-        } else {
-            !cancelled && dispatch({ type: "success", payload: cache.get(key) }) 
+                    })
+                    .catch(payload => !cancelled && dispatch(error(payload)));
+            } else {
+                !cancelled && dispatch(success(cache.get(key))) 
+            }
+            return () => cancelled = true;
         }
-        return () => cancelled = true;
     },[ query, opts, key, queryOptions ])
     useDebugValue({...state, cache, options })
-    return {...state, refresh: () => cache.delete(key)}
+
+    let refreshCancel = false;
+    const refresh = () => {
+        cache.delete(key);
+        dispatch(start())
+        new GraphQLClient(url,queryOptions?.clientOptions)
+            .request(query, opts)
+            .then(payload => {
+                if(!refreshCancel){
+                    dispatch(success(payload))
+                }
+            })
+            .catch(payload => !refreshCancel && dispatch(error(payload)));
+    }
+    refresh.cancel = () => refreshCancel = true;
+
+    return {...state, refresh, forget: () => cache.delete(key) }
 }
 
 export const useMutation = (mutation) => {
