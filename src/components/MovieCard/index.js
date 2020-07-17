@@ -9,15 +9,23 @@ const getGradient = (hue) => {
 }
 
 const MovieCard = ({...props}) => {
-    const { title, genres, id, src, hue = getRandomHue(), onClick = x=>x } = props;
+    const { title, genres, id, src, showDelete, hue = getRandomHue(), onClick = x=>x, onDelete=x=>x } = props;
     const genresString = genres.join('/');
     const gradient = getGradient(hue);
     const handleClick = (e) => {
         e.preventDefault()
         onClick(id);
     }
+
+    const handleDelete = e => {
+        e.stopPropagation();
+        e.preventDefault();
+        onDelete(id);
+    }
+
     return(
         <a className="movie-card" href={`#${id}`} onClick={handleClick}>
+            { showDelete && <button className="movie-card__delete" onClick={handleDelete}>x</button>}
             <div className="movie-card__background" >
                 <img 
                     className="movie-card__background__image" 

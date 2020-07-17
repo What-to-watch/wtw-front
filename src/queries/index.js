@@ -185,6 +185,12 @@ export const CREATE_WATCH_LIST = `
     }
 `
 
+export const DELETE_WATCH_LIST = `
+    mutation deleteWatchlist($id: Int) {
+        deleteWatchlist(id: $id)
+    }
+`
+
 export const MY_WATCH_LIST_NAMES = `
     query myWatchlists {
         myWatchlists {
@@ -200,5 +206,11 @@ export const MY_WATCH_LIST_NAMES = `
 export const ADD_TO_WATCHLIST = `
     mutation addMovieToWatchlist($watchlistId: Int, $movieId: Int) {
         addMovieToWatchlist(watchlistId: $watchlistId, movieId: $movieId)
+    }
+`
+
+export const REMOVE_FROM_WATCHLIST = `
+    mutation deleteMovieInWatchlist($watchlistId: Int, $movieId: Int) {
+        deleteMovieInWatchlist(watchlistId: $watchlistId, movieId: $movieId)
     }
 `

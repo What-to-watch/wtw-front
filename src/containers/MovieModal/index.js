@@ -101,7 +101,6 @@ const MovieModal = (props) => {
         ];
         const idx = Math.floor((Math.random() * 100) % iconArray.length)
         const icon = iconArray[idx];
-        console.log("ICON:",icon,idx)
         createWatchList({
             name,
             icon,

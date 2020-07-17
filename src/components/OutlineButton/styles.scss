@@ -57,6 +57,15 @@
         } 
     }
 
+    &--danger {
+        border: 1px solid white;
+        color: white;
+        &.outline-button--hover, &.outline-button--active{
+            background-color: #AD0B0B;
+            border: 1px solid #AD0B0B;
+        }
+    }
+
     &__loader {
         position: absolute;
         margin: auto;
