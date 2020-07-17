@@ -4,7 +4,7 @@ import rootReducer from "./reducer"
 
 const initialState = {
     routing: {
-        current: "lists",
+        current: "home",
         previous: [],
         next: []
     },
