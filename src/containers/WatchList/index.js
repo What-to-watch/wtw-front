@@ -10,7 +10,7 @@ import { MY_WATCH_LISTS, PUBLIC_WATCH_LISTS } from '../../queries';
 
 import './styles.scss';
 
-const MyList = ({onClick, userData, refresh}) => {
+const MyList = ({onClick, userData, refresh, deleted }) => {
     const [ open, setOpen ] = useState(false);
     const myLists = useQuery(MY_WATCH_LISTS, {},
         {
@@ -39,10 +39,10 @@ const MyList = ({onClick, userData, refresh}) => {
     }
 
     const myListContent = () => {
-        return myLists.data.myWatchlists.length > 0 ? (
+        return myLists.data.myWatchlists.filter(w => !deleted.includes(w.id)).length > 0 ? (
             <div className="watch-list__section__grid">
-                {myLists.data.myWatchlists.map(((list,key) => { return (
-                    <WatchListCard element data={list} key={key} onClick={()=>onClick(list)}/>
+                {myLists.data.myWatchlists.filter(w => !deleted.includes(w.id)).map(((list,key) => { return (
+                    <WatchListCard element data={list} key={key} onClick={()=>onClick(list,true)}/>
                 )}))}
             </div>
         ) : (
@@ -67,10 +67,20 @@ const MyList = ({onClick, userData, refresh}) => {
 const WatchList = ({onClickMovie}) => {
     const [ selectedWatchList, setSelectedWatchList ] = useState(null);
     const { authenticated, data } = usePathSelector('user');
+    const [deleted, setDeleted] = useState([])
     const publicLists = useQuery(PUBLIC_WATCH_LISTS,{},{ disableCaching: true });
 
-    const onSelectWatchList = (value) => {
-        setSelectedWatchList(value);
+    const onSelectWatchList = (value,owned) => {
+        if( owned ){
+            setSelectedWatchList({ ...value, owned })
+        } else {
+            setSelectedWatchList(value);
+        }
+    }
+
+    const handleDelete = (id) => {
+        setDeleted([ ...deleted, id ])
+        publicLists.refresh();
     }
 
     const publicListloading = (
@@ -82,7 +92,7 @@ const WatchList = ({onClickMovie}) => {
     const publicListContent = () => {
         return publicLists.data.publicWatchlists.length > 0 ? (
             <div className="watch-list__section__grid">
-                {publicLists.data.publicWatchlists.map(((list,key) => { return (
+                {publicLists.data.publicWatchlists.filter(p => !deleted.includes(p.id)).map(((list,key) => { return (
                     <WatchListCard element key={key} data={list} onClick={()=>onSelectWatchList(list)}/>
                 )}))}
             </div>
@@ -107,6 +117,7 @@ const WatchList = ({onClickMovie}) => {
             onClickMovie={onClickMovie}
             data={list}
             goBack={()=>onSelectWatchList(null)}
+            onDelete={handleDelete}
         /> 
     );
 
@@ -116,7 +127,7 @@ const WatchList = ({onClickMovie}) => {
         } else {
             return (
                 <div className="watch-list">
-                    { authenticated && (<MyList refresh={publicLists.refresh} userData={data} onClick={onSelectWatchList}/>) }
+                    { authenticated && (<MyList deleted={deleted} refresh={publicLists.refresh} userData={data} onClick={onSelectWatchList}/>) }
                     { renderPublicList }
                 </div>
             );

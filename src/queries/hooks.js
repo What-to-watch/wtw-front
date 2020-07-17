@@ -78,14 +78,16 @@ export const useQuery = (query,vars,options) => {
     const refresh = () => {
         cache.delete(key);
         dispatch(start())
-        new GraphQLClient(url,queryOptions?.clientOptions)
-            .request(query, opts)
-            .then(payload => {
-                if(!refreshCancel){
-                    dispatch(success(payload))
-                }
-            })
-            .catch(payload => !refreshCancel && dispatch(error(payload)));
+        setTimeout(() => {
+            new GraphQLClient(url,queryOptions?.clientOptions)
+                .request(query, opts)
+                .then(payload => {
+                    if(!refreshCancel){
+                        dispatch(success(payload))
+                    }
+                })
+                .catch(payload => !refreshCancel && dispatch(error(payload)));
+        },500)
     }
     refresh.cancel = () => refreshCancel = true;
 
